@@ -7,14 +7,14 @@ videogamesRouter.get("", async (req, res) => {
   const { name } = req.query;
   const apiInfo = await videogames();
   // console.log(apiInfo.length);
-
+  console.log(apiInfo.length);
+  
   try {
     if (name) {
       let videogameName = await apiInfo
         .filter((el) => el.name.toLowerCase().includes(name.toLowerCase()))
         .slice(0, 15);
 
-      console.log(videogameName.length);
 
       videogameName.length
         ? res.status(200).send(videogameName)
