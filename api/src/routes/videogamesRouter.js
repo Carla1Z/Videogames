@@ -1,23 +1,26 @@
 const { Router } = require("express");
 const videogames = require("../controllers/videogames");
 
-
 const videogamesRouter = Router();
 
 videogamesRouter.get("", async (req, res) => {
-  const { name } = req.query
-  const apiInfo = await videogames()
+  const { name } = req.query;
+  const apiInfo = await videogames();
   // console.log(apiInfo.length);
 
   try {
-    if(name){
-      let videogameName = await apiInfo.filter((el) => el.name.toLowerCase().includes(name.toLowerCase())).slice(0,15)
+    if (name) {
+      let videogameName = await apiInfo
+        .filter((el) => el.name.toLowerCase().includes(name.toLowerCase()))
+        .slice(0, 15);
 
       console.log(videogameName.length);
 
-      videogameName.length ? res.status(200).send(videogameName) : res.status(404).send("Videogame not found")
-    }else{
-      res.status(200).send(apiInfo)
+      videogameName.length
+        ? res.status(200).send(videogameName)
+        : res.status(404).send("Videogame not found");
+    } else {
+      res.status(200).send(apiInfo);
     }
   } catch (error) {
     console.log("Error en la ruta videogames= " + error);
@@ -27,11 +30,28 @@ videogamesRouter.get("", async (req, res) => {
 });
 
 videogamesRouter.get("/:id", async (req, res) => {
-  res.send("GET de la ruta id");
+  const { id } = req.params;
+  const apiInfo = await videogames();
+
+  // Incluir los géneros asociados
+  try {
+    if (id) {
+      let gameId = apiInfo.filter((el) => el.id == id);
+
+      gameId.length
+        ? res.status(200).send(gameId)
+        : res.status(404).send("ID not found");
+    } else {
+      res.send("invalid ID");
+    }
+    // res.send("GET de la ruta id");
+  } catch (error) {
+    console.log("ID no encontrado= " + error);
+  }
 });
 
-videogamesRouter.post('', async(req, res) => {
-    res.send("POST de la ruta videogames")
-})
+videogamesRouter.post("", async (req, res) => {
+  res.send("POST de la ruta videogames");
+});
 
 module.exports = videogamesRouter;
