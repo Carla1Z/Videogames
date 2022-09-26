@@ -11,7 +11,9 @@ videogamesRouter.get("", async (req, res) => {
 
   try {
     if(name){
-      const videogameName = await apiInfo.filter((el) => el.name.toLowerCase().includes(name.toLowerCase()))
+      let videogameName = await apiInfo.filter((el) => el.name.toLowerCase().includes(name.toLowerCase())).slice(0,15)
+
+      console.log(videogameName.length);
 
       videogameName.length ? res.status(200).send(videogameName) : res.status(404).send("Videogame not found")
     }else{
