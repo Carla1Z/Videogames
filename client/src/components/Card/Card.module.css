@@ -1,0 +1,16 @@
+.card{
+    /* display: inline-block; */
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: 10px;
+    padding-top: 15px;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.card img{
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+}

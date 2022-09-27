@@ -1,14 +1,19 @@
+import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 import Videogames from "../../components/Videogames";
+import Nav from "../../components/Nav";
 
 function Home(){
     return(
         <div>
-            <h2>Home</h2>
+            <Nav />
+            <div className={styles.home}>
+                
             <Link to="/form">
-                <button>Formulario</button>
+                <button className={styles.button}>Formulario</button>
             </Link>
             <Videogames />
+            </div>
         </div>
     )
 }

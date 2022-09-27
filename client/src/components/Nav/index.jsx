@@ -1,7 +1,10 @@
+import styles from "./Nav.module.css";
+import SearchBar from "../SearchBar";
+
 function Nav(){
     return(
-        <div>
-            <h3>Barra de navegación</h3>
+        <div className={styles.nav}>
+            <SearchBar className={styles.searchbar} />
         </div>
     )
 }
