@@ -12,14 +12,14 @@ function Home() {
   const allVideogames = useSelector((state) => state.videogames);
   // console.log(allVideogames);
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-
   const [gamePerPage] = useState(15);
+
   const lastGame = currentPage * gamePerPage;
   const firstGame = lastGame - gamePerPage;
-
   const filteredVideogames = allVideogames.slice(firstGame, lastGame)
+
 
   const paged = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -31,18 +31,18 @@ function Home() {
 //   const filteredVideogames = allVideogames.slice(currentPage, currentPage + 15);
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     dispatch(getVideogames());
-    setLoading(false);
+    // setLoading(false);
   }, [dispatch]);
 
   return (
     <div>
       <Nav />
       <Pagination
-        gamePerPage={gamePerPage}
         allVideogames={allVideogames.length}
-        // paged={paged}
+        gamePerPage={gamePerPage}
+        paged={paged}
         // filteredVideogames={filteredVideogames}
         // pageNumber={pageNumber}
         currentPage={currentPage}

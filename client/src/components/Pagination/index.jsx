@@ -2,10 +2,11 @@ function Pagination({
   currentPage,
   setCurrentPage,
   allVideogames,
-  filteredVideogames,
+  gamePerPage,
   paged,
 }) {
   const nextPage = () => {
+    if(currentPage < pageNumber.length)
     setCurrentPage(currentPage + 1);
   };
 
@@ -16,7 +17,7 @@ function Pagination({
   //------------------------------------------------------
 
   const pageNumber = [];
-  for (let i = 1; i <= Math.ceil(allVideogames / filteredVideogames); i++) {
+  for (let i = 1; i <= Math.ceil(allVideogames / gamePerPage); i++) {
     pageNumber.push(i);
   }
 
@@ -30,7 +31,7 @@ function Pagination({
         <ul>
           {pageNumber.map((number) => (
               <li key={number}>
-                <a onClick={() => paged(number)} href="!#">{number}</a>
+                <button onClick={() => paged(number)}>{number}</button>
               </li>
             ))}
         </ul>
