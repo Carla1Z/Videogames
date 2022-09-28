@@ -1,3 +1,5 @@
+import styles from "./Pagination.module.css";
+
 function Pagination({
   currentPage,
   setCurrentPage,
@@ -6,8 +8,7 @@ function Pagination({
   paged,
 }) {
   const nextPage = () => {
-    if(currentPage < pageNumber.length)
-    setCurrentPage(currentPage + 1);
+    if (currentPage < pageNumber.length) setCurrentPage(currentPage + 1);
   };
 
   const prevPage = () => {
@@ -21,19 +22,19 @@ function Pagination({
     pageNumber.push(i);
   }
 
-//   console.log("numero de pagina=" + pageNumber);
+  //   console.log("numero de pagina=" + pageNumber);
 
   return (
-    <div>
+    <div className={styles.pagination}>
       <button onClick={prevPage}>Anterior</button>
 
       <div>
-        <ul>
+        <ul className={styles.numbers}>
           {pageNumber.map((number) => (
-              <li key={number}>
-                <button onClick={() => paged(number)}>{number}</button>
-              </li>
-            ))}
+            <li key={number}>
+              <button onClick={() => paged(number)} className={styles.button}>{number}</button>
+            </li>
+          ))}
         </ul>
       </div>
 

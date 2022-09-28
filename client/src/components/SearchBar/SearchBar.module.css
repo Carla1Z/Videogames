@@ -5,14 +5,14 @@
   .input {
     font-size: 14px;
     margin-right: 2px;
-    border: 1px solid yellowgreen;
+    border: 1px solid #00b0c8;
     border-radius: 5px;
   }
   
   .button {
-    border: 1px solid yellowgreen;
+    border: 1px solid #00b0c8;
     border-radius: 5px;
-    background-color: #00b1c87e;
+    background-color: #22727c7e;
     cursor: pointer;
   }
   

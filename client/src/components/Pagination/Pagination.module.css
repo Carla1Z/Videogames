@@ -1,0 +1,27 @@
+button {
+  margin: 2px;
+  padding: 5px 6px;
+  border-radius: 4px;
+  border: 1px solid dimgray;
+  background-color: rgba(240, 248, 255, 0.87);
+  color: dimgray;
+  font-weight: bold;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 10px; */
+}
+
+.numbers {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+/* .numbers li{
+    padding: 5px;
+    margin: 3px;
+} */

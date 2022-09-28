@@ -1,4 +1,5 @@
 import styles from "./Home.module.css";
+import banner from "./../../assets/banner.jpg";
 import { Link } from "react-router-dom";
 import Videogames from "../../components/Videogames";
 import Nav from "../../components/Nav";
@@ -18,17 +19,15 @@ function Home() {
 
   const lastGame = currentPage * gamePerPage;
   const firstGame = lastGame - gamePerPage;
-  const filteredVideogames = allVideogames.slice(firstGame, lastGame)
-
+  const filteredVideogames = allVideogames.slice(firstGame, lastGame);
 
   const paged = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
+    setCurrentPage(pageNumber);
+  };
 
+  //   console.log('filteredVideogame= '+ filteredVideogames);
 
-//   console.log('filteredVideogame= '+ filteredVideogames);
-
-//   const filteredVideogames = allVideogames.slice(currentPage, currentPage + 15);
+  //   const filteredVideogames = allVideogames.slice(currentPage, currentPage + 15);
 
   useEffect(() => {
     // setLoading(true);
@@ -37,22 +36,28 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={styles.home}>
       <Nav />
-      <Pagination
-        allVideogames={allVideogames.length}
-        gamePerPage={gamePerPage}
-        paged={paged}
-        // filteredVideogames={filteredVideogames}
-        // pageNumber={pageNumber}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-      <div className={styles.home}>
-        <Link to="/form">
-          <button className={styles.button}>Formulario</button>
-        </Link>
+      <div className={styles.divBanner}>
+        <img src={banner} alt="videogames banner" className={styles.banner} />
+      </div>
+
+      <div className={styles.menu}>
+        <div className={styles.barra}>
+          <Link to="/form">
+            <button className={styles.buttonForm}>Formulario</button>
+          </Link>
+        </div>
         <Videogames allVideogames={filteredVideogames} />
+        <Pagination
+          allVideogames={allVideogames.length}
+          gamePerPage={gamePerPage}
+          paged={paged}
+          // filteredVideogames={filteredVideogames}
+          // pageNumber={pageNumber}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </div>
   );
