@@ -7,6 +7,7 @@ import Pagination from "../../components/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { getVideogames } from "../../redux/actions";
 import { useEffect, useState } from "react";
+import Filters from "../../components/Filters";
 
 function Home() {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ function Home() {
           <Link to="/form">
             <button className={styles.buttonForm}>Formulario</button>
           </Link>
+          <Filters />
         </div>
         <Videogames allVideogames={filteredVideogames} />
         <Pagination
