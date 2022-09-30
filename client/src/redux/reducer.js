@@ -1,8 +1,9 @@
-import { GET_ORDER_ABC, GET_VIDEOGAMES } from "./type";
+import { GET_ID, GET_ORDER_ABC, GET_VIDEOGAMES } from "./type";
 
 const initialState = {
   videogames: [],
   totalVideogames: [],
+  detail: [],
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +13,11 @@ export default function (state = initialState, action) {
         ...state,
         videogames: action.payload,
         totalVideogames: action.payload,
+      };
+    case GET_ID:
+      return {
+        ...state,
+        detail: action.payload,
       };
     case GET_ORDER_ABC:
       let sortVideogames = [...state.videogames];
