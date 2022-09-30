@@ -1,3 +1,4 @@
+import styles from "./Detail.module.css"
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -22,7 +23,7 @@ useEffect(() => {
         <button>Home</button>
       </Link>
       <h1>Ruta de detalle</h1>
-      <Id videogameDetail={videogameDetail} />
+      <Id videogameDetail={videogameDetail} className={styles.id} />
     </div>
   );
 }

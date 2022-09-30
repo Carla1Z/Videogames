@@ -1,0 +1,11 @@
+.detail{
+    background-color: hotpink;
+    margin: 20%;
+    display: grid;
+    justify-content: center;
+}
+
+.detail img{
+    width: 200px;
+    height: auto;
+}

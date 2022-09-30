@@ -1,8 +1,10 @@
+import styles from "./Id.module.css";
+
 function Id({ videogameDetail }) {
   return (
     <div>
-      {videogameDetail ? (
-        <div>
+      {videogameDetail.length ? (
+        <div className={styles.detail}>
           <h3>{videogameDetail[0].name}</h3>
           <p>{videogameDetail[0].rating}</p>
           <p>{videogameDetail[0].genres}</p>
