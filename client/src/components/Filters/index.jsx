@@ -1,29 +1,48 @@
-function Filters(){
-    return(
-        <div>
-            <select>
-                <option value="all">...</option>
-                <option value="asc">A - Z</option>
-                <option value="desc">Z - Z</option>
-            </select>
+import styles from "./Filters.module.css";
+import { useDispatch } from "react-redux";
+import { getOrderAbc, getVideogames } from "../../redux/actions";
 
-            <select>
-                <option value="all">...</option>
-                <option value="api">Existentes</option>
-                <option value="bd">Creados</option>
-            </select>
+function Filters({ setOrder, order }) {
+  const dispatch = useDispatch();
 
-            <select>
-                <option value="genres">Generos</option>
-            </select>
+  const orderAbc = (e) => {
+    dispatch(getOrderAbc(e.target.value));
+    setOrder(`Ordenado ${e.target.value}`);
+  };
 
-            <select>
-                <option value="rating">...</option>
-                <option value="asc">Más populares</option>
-                <option value="desc">Menos populares</option>
-            </select>
-        </div>
-    )
+  return (
+    <div>
+      <span className={styles.filter}>
+        <p>Ordenar por</p>
+
+        <select onChange={(e) => orderAbc(e)}>
+          <option value="all" hidden>
+            Nombre
+          </option>
+          <option value="asc">A - Z</option>
+          <option value="desc">Z - A</option>
+        </select>
+
+        <select>
+          <option value="all">...</option>
+          <option value="api">Existentes</option>
+          <option value="bd">Creados</option>
+        </select>
+
+        <select>
+          <option value="genres">Generos</option>
+        </select>
+
+        <select>
+          <option value="rating" hidden>
+            Rating
+          </option>
+          <option value="asc">Más populares</option>
+          <option value="desc">Menos populares</option>
+        </select>
+      </span>
+    </div>
+  );
 }
 
-export default Filters
+export default Filters;

@@ -26,9 +26,8 @@ function Home() {
     setCurrentPage(pageNumber);
   };
 
-  //   console.log('filteredVideogame= '+ filteredVideogames);
-
-  //   const filteredVideogames = allVideogames.slice(currentPage, currentPage + 15);
+//ORDENAMIENTO
+const [order, setOrder] = useState("")
 
   useEffect(() => {
     // setLoading(true);
@@ -48,7 +47,7 @@ function Home() {
           <Link to="/form">
             <button className={styles.buttonForm}>Formulario</button>
           </Link>
-          <Filters />
+          <Filters setOrder={setOrder} />
         </div>
         <Videogames allVideogames={filteredVideogames} />
         <Pagination

@@ -27,7 +27,7 @@
 
 .barra {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   border-radius: 5px;
   background-image: linear-gradient(#8949db, #00b0c8);

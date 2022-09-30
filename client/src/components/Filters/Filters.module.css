@@ -1,0 +1,14 @@
+.filter{
+    display: flex;
+    align-items: center;
+}
+
+.filter p{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.filter select{
+    margin: 0 1px;
+    border-radius: 5px;
+}
