@@ -13,10 +13,10 @@ export function getVideogames() {
 
 export function getVideogamesId(id){
   return async (dispatch) => {
-    let allVideogamesId = await axios.get('http://localhost:3001/videogames/' + id)
+    let videogameId = await axios.get('http://localhost:3001/videogames/' + id)
     return dispatch({
       type: GET_ID,
-      payload: allVideogamesId.data,
+      payload: videogameId.data,
     })
   }
 }
