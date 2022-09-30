@@ -1,8 +1,9 @@
+import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import LandingPage from "./view/LandingPage";
 import Home from "./view/Home";
 import Form from "./view/Form";
-import "./App.css";
+import Detail from "./view/Detail";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <Route path="/home" component={Home} />
         <Route path="/form" component={Form} />
+        <Route path="/detail" component={Detail} />
       </Switch>
     </div>
   );
