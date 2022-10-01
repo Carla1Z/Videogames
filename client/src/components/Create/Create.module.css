@@ -1,0 +1,11 @@
+.form{
+    display: grid;
+    justify-content: center;
+    background-color: honeydew;
+}
+
+.form div{
+    margin: 10px;
+    display: grid;
+    justify-items: stretch;
+}

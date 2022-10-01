@@ -1,8 +1,10 @@
+import styles from "./Create.module.css";
+
 function Create() {
   return (
     <div>
       <h3>Formulario de creación</h3>
-      <form>
+      <form className={styles.form}>
         <div>
           <label>Titulo: </label>
           <input type="text" name="name" />
