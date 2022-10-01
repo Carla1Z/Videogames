@@ -37,7 +37,7 @@ const [order, setOrder] = useState("")
 
   return (
     <div className={styles.home}>
-      <Nav />
+      <Nav setCurrentPage={setCurrentPage} />
       <div className={styles.divBanner}>
         <img src={banner} alt="videogames banner" className={styles.banner} />
       </div>
