@@ -1,4 +1,4 @@
-import { GET_ID, GET_ORDER_ABC, GET_VIDEOGAMES } from "./type";
+import { GET_ID, GET_NAME, GET_ORDER_ABC, GET_VIDEOGAMES } from "./type";
 
 const initialState = {
   videogames: [],
