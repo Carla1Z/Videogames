@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { videogames, allVideogamesInfo } = require("../controllers/videogames");
+const { Videogame, Genre } = require("../db");
 
 const videogamesRouter = Router();
 
@@ -50,7 +51,19 @@ videogamesRouter.get("/:id", async (req, res) => {
 });
 
 videogamesRouter.post("", async (req, res) => {
-  res.send("POST de la ruta videogames");
+  const { name, description, released, rating, platforms, genres } = req.body;
+  try {
+    const newVideogame = await Videogame.create({ name, description, released, rating, platforms, genres })
+    const genre = await Genre.findAll({
+      where: { name: genres}
+    })
+
+    newVideogame.addGenre(genre)
+    res.status(200).send(newVideogame)
+    // res.send("POST de la ruta videogames");
+  } catch (error) {
+    console.log("Error en la ruta POST= " + error);
+  }
 });
 
 module.exports = videogamesRouter;
