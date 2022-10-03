@@ -14,6 +14,11 @@ export default function (state = initialState, action) {
         videogames: action.payload,
         totalVideogames: action.payload,
       };
+    case GET_NAME:
+      return {
+        ...state,
+        videogames: action.payload,
+      };
     case GET_ID:
       return {
         ...state,
