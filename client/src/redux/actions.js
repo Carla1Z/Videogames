@@ -1,5 +1,11 @@
 import axios from "axios";
-import { GET_ID, GET_NAME, GET_ORDER_ABC, GET_VIDEOGAMES } from "./type";
+import {
+  GET_ID,
+  GET_NAME,
+  GET_ORDER_ABC,
+  GET_RATING,
+  GET_VIDEOGAMES,
+} from "./type";
 
 export function getVideogames() {
   return async (dispatch) => {
@@ -36,6 +42,13 @@ export function getVideogamesId(id) {
 export function getOrderAbc(payload) {
   return {
     type: GET_ORDER_ABC,
+    payload,
+  };
+}
+
+export function getRating(payload) {
+  return {
+    type: GET_RATING,
     payload,
   };
 }

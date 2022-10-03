@@ -1,4 +1,10 @@
-import { GET_ID, GET_NAME, GET_ORDER_ABC, GET_VIDEOGAMES } from "./type";
+import {
+  GET_ID,
+  GET_NAME,
+  GET_ORDER_ABC,
+  GET_RATING,
+  GET_VIDEOGAMES,
+} from "./type";
 
 const initialState = {
   videogames: [],
@@ -42,6 +48,21 @@ export default function (state = initialState, action) {
       return {
         ...state,
         videogames: sortVideogames,
+      };
+    case GET_RATING:
+      let getRating =
+        action.payload === "max"
+          ? state.totalVideogames.sort(function (a, b) {
+              if (a.rating - b.rating < 0) return 1;
+              if (a.rating - b.rating > 0) return -1;
+            })
+          : state.totalVideogames.sort(function (a, b) {
+              if (a.rating - b.rating > 0) return 1;
+              if (a.rating - b.rating < 0) return -1;
+            });
+      return {
+        ...state,
+        videogames: getRating,
       };
     default:
       return state;
