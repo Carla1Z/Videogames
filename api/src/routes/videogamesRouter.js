@@ -1,20 +1,19 @@
 const { Router } = require("express");
-const videogames = require("../controllers/videogames");
+const { videogames, allVideogamesInfo } = require("../controllers/videogames");
 
 const videogamesRouter = Router();
 
 videogamesRouter.get("", async (req, res) => {
   const { name } = req.query;
-  const apiInfo = await videogames();
+  const apiInfo = await allVideogamesInfo();
   // console.log(apiInfo.length);
   console.log(apiInfo.length);
-  
+
   try {
     if (name) {
       let videogameName = await apiInfo
         .filter((el) => el.name.toLowerCase().includes(name.toLowerCase()))
         .slice(0, 15);
-
 
       videogameName.length
         ? res.status(200).send(videogameName)
@@ -31,7 +30,7 @@ videogamesRouter.get("", async (req, res) => {
 
 videogamesRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const apiInfo = await videogames();
+  const apiInfo = await allVideogamesInfo();
 
   // Incluir los géneros asociados
   try {
