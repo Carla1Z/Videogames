@@ -9,7 +9,7 @@ import { getVideogames } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import Filters from "../../components/Filters";
 
-function Home() {
+function Home({search, setSearch}) {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
   // console.log(allVideogames);

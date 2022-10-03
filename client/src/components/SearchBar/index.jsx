@@ -2,7 +2,7 @@ import styles from "./SearchBar.module.css";
 import lupa from "../../assets/lupa.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getVideogames } from "../../redux/actions";
+import { getName } from "../../redux/actions";
 
 function SearchBar({setCurrentPage}) {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ function SearchBar({setCurrentPage}) {
 
   const submit = (e) => {
     e.preventDefault();
-    dispatch(getVideogames(search));
+    dispatch(getName(search));
     setCurrentPage(1)
     setSearch("");
   };

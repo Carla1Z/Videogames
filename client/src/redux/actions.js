@@ -14,7 +14,7 @@ export function getVideogames() {
 export function getName(name) {
   return async (dispatch) => {
     let videogameName = await axios.get(
-      "http://localhost:3001/videogames?name" + name
+      "http://localhost:3001/videogames?name=" + name
     );
     return dispatch({
       type: GET_NAME,
