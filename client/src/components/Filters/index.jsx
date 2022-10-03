@@ -1,6 +1,6 @@
 import styles from "./Filters.module.css";
 import { useDispatch } from "react-redux";
-import { getOrderAbc, getVideogames } from "../../redux/actions";
+import { getOrderAbc, getRating, getVideogames } from "../../redux/actions";
 
 function Filters({ setOrder, order }) {
   const dispatch = useDispatch();
@@ -9,6 +9,11 @@ function Filters({ setOrder, order }) {
     dispatch(getOrderAbc(e.target.value));
     setOrder(`Ordenado ${e.target.value}`);
   };
+
+  const orderRating = (e) => {
+    dispatch(getRating(e.target.value))
+    setOrder(`Ordenado ${e.target.value}`)
+  }
 
   return (
     <div>
@@ -33,12 +38,12 @@ function Filters({ setOrder, order }) {
           <option value="genres">Generos</option>
         </select>
 
-        <select>
+        <select onChange={(e) => orderRating(e)}>
           <option value="rating" hidden>
             Rating
           </option>
-          <option value="asc">Más populares</option>
-          <option value="desc">Menos populares</option>
+          <option value="max">Más populares</option>
+          <option value="min">Menos populares</option>
         </select>
       </span>
     </div>
