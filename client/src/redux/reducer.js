@@ -1,4 +1,5 @@
 import {
+  GET_GENRES,
   GET_ID,
   GET_NAME,
   GET_ORDER_ABC,
@@ -10,6 +11,7 @@ const initialState = {
   videogames: [],
   totalVideogames: [],
   detail: [],
+  genres: [],
 };
 
 export default function (state = initialState, action) {
@@ -60,6 +62,11 @@ export default function (state = initialState, action) {
               if (a.rating - b.rating > 0) return 1;
               if (a.rating - b.rating < 0) return -1;
             });
+    case GET_GENRES:
+      return {
+        ...state,
+        genres: action.payload,
+      };
       return {
         ...state,
         videogames: getRating,

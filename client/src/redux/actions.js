@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  GET_GENRES,
   GET_ID,
   GET_NAME,
   GET_ORDER_ABC,
@@ -50,5 +51,15 @@ export function getRating(payload) {
   return {
     type: GET_RATING,
     payload,
+  };
+}
+
+export function getGenres() {
+  return async function (dispatch) {
+    let genre = await axios("http://localhost:3001/genres", {});
+    return dispatch({
+      type: GET_GENRES,
+      payload: genre.data,
+    });
   };
 }

@@ -1,9 +1,18 @@
 import styles from "./Filters.module.css";
-import { useDispatch } from "react-redux";
-import { getOrderAbc, getRating, getVideogames } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getGenres,
+  getOrderAbc,
+  getRating,
+  getVideogames,
+} from "../../redux/actions";
+import { useEffect, useState } from "react";
 
 function Filters({ setOrder, order }) {
   const dispatch = useDispatch();
+  const genres = useSelector((state) => state.genres)
+
+  const [select, setSelect] = useState({ genres: [] });
 
   const orderAbc = (e) => {
     dispatch(getOrderAbc(e.target.value));
@@ -11,9 +20,20 @@ function Filters({ setOrder, order }) {
   };
 
   const orderRating = (e) => {
-    dispatch(getRating(e.target.value))
-    setOrder(`Ordenado ${e.target.value}`)
-  }
+    dispatch(getRating(e.target.value));
+    setOrder(`Ordenado ${e.target.value}`);
+  };
+
+  const genresSelect = (e) => {
+    setSelect({
+      ...select,
+      genres: [...select.genres, e.target.value],
+    });
+  };
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, []);
 
   return (
     <div>
@@ -34,8 +54,10 @@ function Filters({ setOrder, order }) {
           <option value="bd">Creados</option>
         </select>
 
-        <select>
-          <option value="genres">Generos</option>
+        <select onChange={genresSelect}>
+          {genres.map((genre) => (
+            <option value={genre.name}>{genre.name}</option>
+          ))}
         </select>
 
         <select onChange={(e) => orderRating(e)}>
