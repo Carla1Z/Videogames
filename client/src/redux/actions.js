@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  GENRES_FILTER,
   GET_GENRES,
   GET_ID,
   GET_NAME,
@@ -54,6 +55,13 @@ export function getRating(payload) {
   };
 }
 
+export function postVideogame(payload) {
+  return async function (dispatch) {
+    let videogame = await axios.post("http://localhost:3001/videogames");
+    return videogame;
+  };
+}
+
 export function getGenres() {
   return async function (dispatch) {
     let genre = await axios("http://localhost:3001/genres", {});
@@ -64,9 +72,9 @@ export function getGenres() {
   };
 }
 
-export function postVideogame(payload) {
-  return async function (dispatch) {
-    let videogame = await axios.post("http://localhost:3001/videogames");
-    return videogame;
+export function filterGenres(payload) {
+  return {
+    type: GENRES_FILTER,
+    payload,
   };
 }

@@ -1,4 +1,5 @@
 import {
+  GENRES_FILTER,
   GET_GENRES,
   GET_ID,
   GET_NAME,
@@ -67,14 +68,19 @@ export default function (state = initialState, action) {
         ...state,
         videogames: getRating,
       };
+    case GENRES_FILTER:
+      let allVideogames = state.totalVideogames;
+      let filter =
+        action.payload === "genres"
+          ? allVideogames
+          : allVideogames.filter((g) => {
+              return g.genres.includes(action.payload);
+            });
+      return {
+        ...state,
+        videogames: filter,
+      };
     case GET_GENRES:
-      // let allVideogames = state.totalVideogames;
-      // let filter =
-      //   action.payload === "genres"
-      //     ? allVideogames
-      //     : allVideogames.filter((g) => {
-      //         return g.genres.includes(action.payload);
-      //       });
       return {
         ...state,
         genres: action.payload,
