@@ -61,7 +61,7 @@ function Filters({ setOrder, order }) {
 
         <select onChange={cardsGenres}>
         {/* <select onChange={genresSelect}> */}
-          <option value="genres">...</option>
+          <option value="genres">Generos</option>
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
             ))}
