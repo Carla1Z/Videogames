@@ -31,11 +31,14 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       // allowNull: false,
     },
+    image: {
+      type: DataTypes.STRING,
+    },
     originDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,
-    }
+    },
   });
 };
 

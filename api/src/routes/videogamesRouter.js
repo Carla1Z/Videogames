@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { videogameId } = require("../controllers/detail");
 const { videogames, allVideogamesInfo } = require("../controllers/videogames");
 const { Videogame, Genre } = require("../db");
 
@@ -31,19 +32,17 @@ videogamesRouter.get("", async (req, res) => {
 
 videogamesRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const apiInfo = await allVideogamesInfo();
-
+  
   // Incluir los géneros asociados
   try {
-    if (id) {
-      let gameId = apiInfo.filter((el) => el.id == id);
-
-      gameId.length
-        ? res.status(200).send(gameId)
-        : res.status(404).send("ID not found");
-    } else {
-      res.send("invalid ID");
+    if(id){
+      const apiInfo = await videogameId(id);
+      res.status(200).json(apiInfo)
+    }else{
+      res.send("invalid ID")
     }
+
+
     // res.send("GET de la ruta id");
   } catch (error) {
     console.log("ID no encontrado= " + error);
@@ -53,13 +52,20 @@ videogamesRouter.get("/:id", async (req, res) => {
 videogamesRouter.post("", async (req, res) => {
   const { name, description, released, rating, platforms, genres } = req.body;
   try {
-    const newVideogame = await Videogame.create({ name, description, released, rating, platforms, genres })
+    const newVideogame = await Videogame.create({
+      name,
+      description,
+      released,
+      rating,
+      platforms,
+      genres,
+    });
     const genre = await Genre.findAll({
-      where: { name: genres}
-    })
+      where: { name: genres },
+    });
 
-    newVideogame.addGenre(genre)
-    res.status(200).send(newVideogame)
+    newVideogame.addGenre(genre);
+    res.status(200).send(newVideogame);
     // res.send("POST de la ruta videogames");
   } catch (error) {
     console.log("Error en la ruta POST= " + error);
