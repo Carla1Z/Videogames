@@ -6,3 +6,4 @@ export const GET_GENRES = "GET_GENRES";
 export const POST_VIDEOGAME = "POST_VIDEOGAME";
 export const GENRES_FILTER = "GENRES_FILTER";
 export const GET_ORDER_ABC = "GET_ORDER_ABC";
+export const SORT_ORIGIN = "SORT_ORIGIN";

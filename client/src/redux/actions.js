@@ -7,6 +7,7 @@ import {
   GET_ORDER_ABC,
   GET_RATING,
   GET_VIDEOGAMES,
+  SORT_ORIGIN,
 } from "./type";
 
 export function getVideogames() {
@@ -75,6 +76,13 @@ export function getGenres() {
 export function filterGenres(payload) {
   return {
     type: GENRES_FILTER,
+    payload,
+  };
+}
+
+export function sortByOrigin(payload) {
+  return {
+    type: SORT_ORIGIN,
     payload,
   };
 }

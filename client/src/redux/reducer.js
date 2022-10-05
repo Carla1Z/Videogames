@@ -7,6 +7,7 @@ import {
   GET_RATING,
   GET_VIDEOGAMES,
   POST_VIDEOGAME,
+  SORT_ORIGIN,
 } from "./type";
 
 const initialState = {
@@ -68,6 +69,18 @@ export default function (state = initialState, action) {
         ...state,
         videogames: getRating,
       };
+    case SORT_ORIGIN:
+      let videogamesOrigin = state.totalVideogames;
+      let sortOrigin =
+        action.payload === "bd"
+          ? videogamesOrigin.filter((el) => el.originDb)
+          : videogamesOrigin.filter((el) => !el.originDb);
+      return {
+        ...state,
+        videogames:
+          action.payload === "all" ? state.totalVideogames : sortOrigin,
+      };
+
     case GENRES_FILTER:
       let allVideogames = state.totalVideogames;
       let filter =
