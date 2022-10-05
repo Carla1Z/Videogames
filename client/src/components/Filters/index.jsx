@@ -6,6 +6,7 @@ import {
   getOrderAbc,
   getRating,
   getVideogames,
+  sortByOrigin,
 } from "../../redux/actions";
 import { useEffect, useState } from "react";
 
@@ -36,6 +37,10 @@ function Filters({ setOrder, order }) {
     dispatch(filterGenres(e.target.value))
   }
 
+  const orderOrigin = (e) => {
+    dispatch(sortByOrigin(e.target.value))
+  }
+
   useEffect(() => {
     dispatch(getGenres());
   }, []);
@@ -53,7 +58,7 @@ function Filters({ setOrder, order }) {
           <option value="desc">Z - A</option>
         </select>
 
-        <select>
+        <select onChange={orderOrigin}>
           <option value="all">...</option>
           <option value="api">Existentes</option>
           <option value="bd">Creados</option>
