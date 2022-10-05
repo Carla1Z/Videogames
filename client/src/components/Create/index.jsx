@@ -1,33 +1,98 @@
 import styles from "./Create.module.css";
+import { useDispatch } from "react-redux";
+import { postVideogame } from "../../redux/actions";
+import { useState } from "react";
+import axios from "axios";
 
 function Create() {
+  const dispatch = useDispatch();
+
+  const [create, setCreate] = useState({
+    name: "",
+    description: "",
+    released: "",
+    genres: "",
+    platforms: "",
+  });
+
+  const handleChange = (e) => {
+    setCreate({
+      ...create,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.post("http://localhost:3001/videogames", create)
+    // dispatch(postVideogame());
+    setCreate({
+      name: "",
+      description: "",
+      released: "",
+      genres: "",
+      platforms: "",
+    });
+    alert("Videojuego creado");
+  };
+
   return (
     <div>
       <h3>Formulario de creación</h3>
-      <form className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <div>
           <label>Titulo: </label>
-          <input type="text" name="name" />
+          <input
+            type="text"
+            name="name"
+            value={create.name}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Descripción: </label>
-          <input type="text" name="description" />
+          <input
+            type="text"
+            name="description"
+            value={create.description}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Fecha de lanzamiento</label>
-          <input type="date" name="released" />
+          <input
+            type="date"
+            name="released"
+            value={create.released}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Rating</label>
-          <input type="text" name="rating" />
+          <input
+            type="text"
+            name="rating"
+            value={create.rating}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Genero: </label>
-          <input type="text" name="genres" />
+          <input
+            type="text"
+            name="genres"
+            value={create.genres}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Plataforma: </label>
-          <input type="text" name="platforms" />
+          <input
+            type="text"
+            name="platforms"
+            value={create.platforms}
+            onChange={handleChange}
+          />
         </div>
 
         <button type="submit">Crear</button>
