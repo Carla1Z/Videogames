@@ -63,3 +63,10 @@ export function getGenres() {
     });
   };
 }
+
+export function postVideogame(payload) {
+  return async function (dispatch) {
+    let videogame = await axios.post("http://localhost:3001/videogames");
+    return videogame;
+  };
+}

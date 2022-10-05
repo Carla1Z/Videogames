@@ -5,6 +5,7 @@ import {
   GET_ORDER_ABC,
   GET_RATING,
   GET_VIDEOGAMES,
+  POST_VIDEOGAME,
 } from "./type";
 
 const initialState = {
@@ -78,7 +79,10 @@ export default function (state = initialState, action) {
         ...state,
         genres: action.payload,
       };
-
+    case POST_VIDEOGAME:
+      return {
+        ...state,
+      };
     default:
       return state;
   }
