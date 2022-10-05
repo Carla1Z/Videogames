@@ -62,15 +62,23 @@ export default function (state = initialState, action) {
               if (a.rating - b.rating > 0) return 1;
               if (a.rating - b.rating < 0) return -1;
             });
-    case GET_GENRES:
-      return {
-        ...state,
-        genres: action.payload,
-      };
       return {
         ...state,
         videogames: getRating,
       };
+    case GET_GENRES:
+      // let allVideogames = state.totalVideogames;
+      // let filter =
+      //   action.payload === "genres"
+      //     ? allVideogames
+      //     : allVideogames.filter((g) => {
+      //         return g.genres.includes(action.payload);
+      //       });
+      return {
+        ...state,
+        genres: action.payload,
+      };
+
     default:
       return state;
   }

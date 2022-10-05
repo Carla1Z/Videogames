@@ -31,6 +31,10 @@ function Filters({ setOrder, order }) {
     });
   };
 
+  const filterGenres = (e) => {
+    dispatch(getGenres(e.target.value))
+  }
+
   useEffect(() => {
     dispatch(getGenres());
   }, []);
@@ -54,10 +58,17 @@ function Filters({ setOrder, order }) {
           <option value="bd">Creados</option>
         </select>
 
-        <select onChange={genresSelect}>
+        {/* <select onChange={genresSelect}>
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
           ))}
+        </select> */}
+
+        <select onChange={genresSelect}>
+          <option value="genres">...</option>
+          {genres.map((genre) => (
+            <option value={genre.name}>{genre.name}</option>
+            ))}
         </select>
 
         <select onChange={(e) => orderRating(e)}>
