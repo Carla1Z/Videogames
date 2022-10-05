@@ -1,6 +1,7 @@
 import styles from "./Filters.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  filterGenres,
   getGenres,
   getOrderAbc,
   getRating,
@@ -31,8 +32,8 @@ function Filters({ setOrder, order }) {
     });
   };
 
-  const filterGenres = (e) => {
-    dispatch(getGenres(e.target.value))
+  const cardsGenres = (e) => {
+    dispatch(filterGenres(e.target.value))
   }
 
   useEffect(() => {
@@ -58,13 +59,8 @@ function Filters({ setOrder, order }) {
           <option value="bd">Creados</option>
         </select>
 
-        {/* <select onChange={genresSelect}>
-          {genres.map((genre) => (
-            <option value={genre.name}>{genre.name}</option>
-          ))}
-        </select> */}
-
-        <select onChange={genresSelect}>
+        <select onChange={cardsGenres}>
+        {/* <select onChange={genresSelect}> */}
           <option value="genres">...</option>
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
