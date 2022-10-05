@@ -72,13 +72,14 @@ export default function (state = initialState, action) {
     case SORT_ORIGIN:
       let videogamesOrigin = state.totalVideogames;
       let sortOrigin =
-        action.payload === "bd"
-          ? videogamesOrigin.filter((el) => el.originDb)
-          : videogamesOrigin.filter((el) => !el.originDb);
+        action.payload === "all"
+          ? videogamesOrigin
+          : action.payload === "db"
+          ? videogamesOrigin.filter((e) => e.originDb)
+          : videogamesOrigin.filter((e) => !e.originDb);
       return {
         ...state,
-        videogames:
-          action.payload === "all" ? state.totalVideogames : sortOrigin,
+        videogames: sortOrigin,
       };
 
     case GENRES_FILTER:

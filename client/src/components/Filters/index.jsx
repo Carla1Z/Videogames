@@ -61,7 +61,7 @@ function Filters({ setOrder, order }) {
         <select onChange={orderOrigin}>
           <option value="all">...</option>
           <option value="api">Existentes</option>
-          <option value="bd">Creados</option>
+          <option value="db">Creados</option>
         </select>
 
         <select onChange={cardsGenres}>
