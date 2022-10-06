@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { videogameId } = require("../controllers/detail");
+const { videogameId, allId } = require("../controllers/detail");
 const { videogames, allVideogamesInfo } = require("../controllers/videogames");
 const { Videogame, Genre } = require("../db");
 
@@ -37,6 +37,7 @@ videogamesRouter.get("/:id", async (req, res) => {
   try {
     if(id){
       const apiInfo = await videogameId(id);
+      // const apiInfo = await allId(id);
       res.status(200).json(apiInfo)
     }else{
       res.send("invalid ID")
