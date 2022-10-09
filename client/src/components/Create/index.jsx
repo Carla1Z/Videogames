@@ -1,11 +1,13 @@
 import styles from "./Create.module.css";
-import { useDispatch } from "react-redux";
-import { postVideogame } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { getGenres, postVideogame } from "../../redux/actions";
 import { useState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 
 function Create() {
   const dispatch = useDispatch();
+  const genres = useSelector((state) => state.genres);
 
   const [create, setCreate] = useState({
     name: "",
@@ -22,10 +24,18 @@ function Create() {
     });
   };
 
+  const handleSelect = (e) => {
+    console.log(`Genero seleccionado: ${e.target.value}`);
+    setCreate({
+      ...create,
+      genres: [...create.genres, e.target.value],
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:3001/videogames", create)
-    // dispatch(postVideogame());
+    // await axios.post("http://localhost:3001/videogames", create)
+    dispatch(postVideogame());
     setCreate({
       name: "",
       description: "",
@@ -35,6 +45,10 @@ function Create() {
     });
     alert("Videojuego creado");
   };
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, []);
 
   return (
     <div>
@@ -78,12 +92,17 @@ function Create() {
         </div>
         <div>
           <label>Genero: </label>
-          <input
+          {/* <input
             type="text"
             name="genres"
             value={create.genres}
             onChange={handleChange}
-          />
+          /> */}
+          <select onChange={handleSelect}>
+            {genres.map((genre) => (
+              <option value={genre.name}>{genre.name}</option>
+            ))}
+          </select>
         </div>
         <div>
           <label>Plataforma: </label>
