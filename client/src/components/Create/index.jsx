@@ -1,6 +1,6 @@
 import styles from "./Create.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres, postVideogame } from "../../redux/actions";
+import { getGenres, getPlatforms, postVideogame } from "../../redux/actions";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
@@ -8,6 +8,7 @@ import { useEffect } from "react";
 function Create() {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
+  const platforms = useSelector((state) => state.platforms);
 
   const [create, setCreate] = useState({
     name: "",
@@ -24,7 +25,7 @@ function Create() {
     });
   };
 
-  const handleSelect = (e) => {
+  const handleSelectGenres = (e) => {
     console.log(`Genero seleccionado: ${e.target.value}`);
     setCreate({
       ...create,
@@ -32,10 +33,16 @@ function Create() {
     });
   };
 
+  const handleSelectPlatforms = (e) => {
+    console.log(`Plataforma seleccionada: ${e.target.value}`);
+    setCreate({
+      ...create,
+      platforms: [...create.platforms, e.target.value],
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // await axios.post("http://localhost:3001/videogames", create)
     dispatch(postVideogame());
     setCreate({
       name: "",
@@ -49,6 +56,7 @@ function Create() {
 
   useEffect(() => {
     dispatch(getGenres());
+    dispatch(getPlatforms());
   }, []);
 
   return (
@@ -93,13 +101,7 @@ function Create() {
         </div>
         <div>
           <label>Genero: </label>
-          {/* <input
-            type="text"
-            name="genres"
-            value={create.genres}
-            onChange={handleChange}
-          /> */}
-          <select onChange={handleSelect}>
+          <select onChange={handleSelectGenres}>
             {genres.map((genre) => (
               <option value={genre.name}>{genre.name}</option>
             ))}
@@ -113,8 +115,12 @@ function Create() {
             value={create.platforms}
             onChange={handleChange}
           /> */}
-          <select>
-
+          <select onChange={handleSelectPlatforms}>
+            {platforms.map((platform) => {
+              return (
+                <option value={platform}>{platform}</option>
+              );
+            })}
           </select>
         </div>
 
