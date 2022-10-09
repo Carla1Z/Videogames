@@ -9,7 +9,7 @@ import { getVideogames } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import Filters from "../../components/Filters";
 
-function Home({search, setSearch}) {
+function Home({ search, setSearch }) {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
   // console.log(allVideogames);
@@ -26,8 +26,8 @@ function Home({search, setSearch}) {
     setCurrentPage(pageNumber);
   };
 
-//ORDENAMIENTO
-const [order, setOrder] = useState("")
+  //ORDENAMIENTO
+  const [order, setOrder] = useState("");
 
   useEffect(() => {
     // setLoading(true);
@@ -39,7 +39,9 @@ const [order, setOrder] = useState("")
     <div className={styles.home}>
       <Nav setCurrentPage={setCurrentPage} />
       <div className={styles.divBanner}>
-        <img src={banner} alt="videogames banner" className={styles.banner} />
+        <Link to="/" className={styles.link}>
+          <img src={banner} alt="videogames banner" className={styles.banner}/>
+        </Link>
       </div>
 
       <div className={styles.menu}>

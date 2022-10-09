@@ -1,21 +1,23 @@
 .container {
   margin: 0;
   height: 90vh;
-  background-color: hotpink;
-  /* background-color: rgba(255, 255, 255, 0.692); */
+  /* background-color: hotpink; */
+  background-color: rgba(255, 255, 255, 0.329);
+  display: grid;
+  align-content: stretch;
 }
 
 .subcontainer {
   display: grid;
   grid-template-columns: 40% 60%;
-  margin: 0 50px;
+  margin: 10px 50px;
   padding-top: 20px;
 }
 
 .detail {
   width: 100%;
   display: grid;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 80% 20%;
   background-color: rgba(240, 248, 255, 0.527);
   border-radius: 20px;
 }
@@ -33,7 +35,7 @@
   align-content: stretch;
   align-items: end;
   justify-content: start;
-  margin: 20px;
+  margin: 10px 30px;
 }
 
 .detail li {
