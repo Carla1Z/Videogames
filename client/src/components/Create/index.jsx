@@ -14,8 +14,8 @@ function Create() {
     name: "",
     description: "",
     released: "",
-    genres: "",
-    platforms: "",
+    genres: [],
+    platforms: [],
   });
 
   const handleChange = (e) => {
@@ -43,13 +43,13 @@ function Create() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(postVideogame());
+    dispatch(postVideogame(create));
     setCreate({
       name: "",
       description: "",
       released: "",
-      genres: "",
-      platforms: "",
+      genres: [],
+      platforms: [],
     });
     alert("Videojuego creado");
   };
