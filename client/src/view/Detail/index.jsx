@@ -18,11 +18,10 @@ useEffect(() => {
     dispatch(getVideogamesId(id))
 }, [dispatch, id])
   return (
-    <div>
+    <div className={styles.detail}>
       <Link to="/home">
         <button>Home</button>
       </Link>
-      <h1>Ruta de detalle</h1>
       <Id videogameDetail={videogameDetail} className={styles.id} />
     </div>
   );

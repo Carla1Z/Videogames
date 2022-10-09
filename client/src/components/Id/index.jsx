@@ -2,13 +2,34 @@ import styles from "./Id.module.css";
 
 function Id({ videogameDetail }) {
   return (
-    <div>
-      {videogameDetail.length ? (
-        <div className={styles.detail}>
-          <h3>{videogameDetail[0].name}</h3>
-          <p>{videogameDetail[0].rating}</p>
-          <p>{videogameDetail[0].genres}</p>
-          <img src={videogameDetail[0].image} alt="videojuego" />
+    <div className={styles.container}>
+      {videogameDetail ? (
+          <div className={styles.subcontainer}>
+            <figure className={styles.detail}>
+              <img src={videogameDetail.image} alt="videojuego" />
+              <ul>
+                <li>
+                  <b>Rating:</b>
+                  <p>{videogameDetail.rating}</p>
+                </li>
+                <li>
+                  <b>Generos:</b>
+                  <p>{videogameDetail.genres}</p>
+                </li>
+                <li>
+                  <b>Plataforma:</b>
+                  <p>{videogameDetail.platforms}</p>
+                </li>
+                <li>
+                  <b>Fecha de lanzamiento:</b>
+                  <p>{videogameDetail.released}</p>
+                </li>
+              </ul>
+            </figure>
+            <div className={styles.description}>
+              <h3>{videogameDetail.name}</h3>
+              <p>{videogameDetail.description}</p>
+          </div>
         </div>
       ) : (
         <p>No existe el videojuego</p>
