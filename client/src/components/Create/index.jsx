@@ -32,6 +32,7 @@ function Create() {
     });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // await axios.post("http://localhost:3001/videogames", create)
@@ -106,12 +107,15 @@ function Create() {
         </div>
         <div>
           <label>Plataforma: </label>
-          <input
+          {/* <input
             type="text"
             name="platforms"
             value={create.platforms}
             onChange={handleChange}
-          />
+          /> */}
+          <select>
+
+          </select>
         </div>
 
         <button type="submit">Crear</button>

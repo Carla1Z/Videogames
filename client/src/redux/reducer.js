@@ -4,6 +4,7 @@ import {
   GET_ID,
   GET_NAME,
   GET_ORDER_ABC,
+  GET_PLATFORMS,
   GET_RATING,
   GET_VIDEOGAMES,
   POST_VIDEOGAME,
@@ -15,6 +16,7 @@ const initialState = {
   totalVideogames: [],
   detail: [],
   genres: [],
+  platforms: [],
 };
 
 export default function (state = initialState, action) {
@@ -81,7 +83,6 @@ export default function (state = initialState, action) {
         ...state,
         videogames: sortOrigin,
       };
-
     case GENRES_FILTER:
       let allVideogames = state.totalVideogames;
       let filter =
@@ -98,6 +99,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         genres: action.payload,
+      };
+    case GET_PLATFORMS:
+      return {
+        ...state,
+        platforms: action.payload,
       };
     case POST_VIDEOGAME:
       return {
