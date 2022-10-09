@@ -38,11 +38,9 @@ function Home({ search, setSearch }) {
   return (
     <div className={styles.home}>
       <Nav setCurrentPage={setCurrentPage} />
-      <div className={styles.divBanner}>
         <Link to="/" className={styles.link}>
           <img src={banner} alt="videogames banner" className={styles.banner}/>
         </Link>
-      </div>
 
       <div className={styles.menu}>
         <div className={styles.barra}>
