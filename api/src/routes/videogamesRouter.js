@@ -51,7 +51,7 @@ videogamesRouter.get("/:id", async (req, res) => {
 });
 
 videogamesRouter.post("", async (req, res) => {
-  const { name, description, released, rating, platforms, genres } = req.body;
+  const { name, description, released, rating, platforms, image, genres } = req.body;
   try {
     const newVideogame = await Videogame.create({
       name,
@@ -59,6 +59,7 @@ videogamesRouter.post("", async (req, res) => {
       released,
       rating,
       platforms,
+      image,
       genres,
     });
     const genre = await Genre.findAll({

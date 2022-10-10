@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 function Filters({ setOrder, order }) {
   const dispatch = useDispatch();
-  const genres = useSelector((state) => state.genres)
+  const genresState = useSelector((state) => state.genres)
 
   const [select, setSelect] = useState({ genres: [] });
 
@@ -26,12 +26,12 @@ function Filters({ setOrder, order }) {
     setOrder(`Ordenado ${e.target.value}`);
   };
 
-  const genresSelect = (e) => {
-    setSelect({
-      ...select,
-      genres: [...select.genres, e.target.value],
-    });
-  };
+  // const genresSelect = (e) => {
+  //   setSelect({
+  //     ...select,
+  //     genres: [...select.genres, e.target.value],
+  //   });
+  // };
 
   const cardsGenres = (e) => {
     dispatch(filterGenres(e.target.value))
@@ -67,7 +67,7 @@ function Filters({ setOrder, order }) {
         <select onChange={cardsGenres}>
         {/* <select onChange={genresSelect}> */}
           <option value="genres">Generos</option>
-          {genres.map((genre) => (
+          {genresState.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
             ))}
         </select>
