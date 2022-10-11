@@ -59,6 +59,7 @@ videogamesRouter.post("", async (req, res) => {
     req.body;
   // if (!name || !description || !platforms)
   //   res.status(400).send("Faltan datos");
+
   try {
     const newVideogame = await Videogame.create({
       name,
@@ -67,14 +68,9 @@ videogamesRouter.post("", async (req, res) => {
       rating,
       platforms,
       image,
-      genres,
     });
-    const genre = await Genre.findAll({
-      where: { name: genres },
-    });
-    newVideogame.addGenre(genre);
+    newVideogame.addGenre(genres);
     res.status(200).send(newVideogame);
-    // res.send("POST de la ruta videogames");
   } catch (error) {
     console.log("Error en la ruta POST= " + error);
   }

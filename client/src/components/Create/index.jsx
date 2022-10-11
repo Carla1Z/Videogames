@@ -8,7 +8,8 @@ import { useEffect } from "react";
 function Create() {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
-  // const platforms = useSelector((state) => state.platforms);
+  const platforms = useSelector((state) => state.platforms);
+  console.log(genres);
 
   const [create, setCreate] = useState({
     name: "",
@@ -16,7 +17,7 @@ function Create() {
     rating: "",
     released: "",
     genres: [],
-    // platforms: [],
+    platforms: [],
   });
 
   const handleChange = (e) => {
@@ -54,13 +55,13 @@ function Create() {
       rating: "",
       released: "",
       genres: [],
-      // platforms: [],
+      platforms: [],
     });
   };
 
   useEffect(() => {
     dispatch(getGenres());
-    // dispatch(getPlatforms());
+    dispatch(getPlatforms());
   }, []);
 
   return (
@@ -105,16 +106,16 @@ function Create() {
         </div>
         <div>
           <label>Genero: </label>
-          <select onChange={handleSelectGenres}>
+          <select onChange={(e) =>handleSelectGenres(e)}>
             {genres.map((genre) => (
-              <option value={genre.name} key={genre.name}>
+              <option value={genre.id} key={genre.id}>
                 {genre.name}
               </option>
             ))}
           </select>
         </div>
         <div>
-          {/*
+          
           <select onChange={handleSelectPlatforms}>
             {platforms.map((platform) => {
               return (
@@ -124,7 +125,7 @@ function Create() {
               );
             })}
           </select>
-          */}
+         
         </div>
 
         <input type="submit" value="Crear" />
