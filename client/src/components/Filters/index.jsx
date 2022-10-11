@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 function Filters({ setOrder, order }) {
   const dispatch = useDispatch();
-  const genresState = useSelector((state) => state.genres)
+  const genresState = useSelector((state) => state.genres);
 
   const [select, setSelect] = useState({ genres: [] });
 
@@ -34,12 +34,12 @@ function Filters({ setOrder, order }) {
   // };
 
   const cardsGenres = (e) => {
-    dispatch(filterGenres(e.target.value))
-  }
+    dispatch(filterGenres(e.target.value));
+  };
 
   const orderOrigin = (e) => {
-    dispatch(sortByOrigin(e.target.value))
-  }
+    dispatch(sortByOrigin(e.target.value));
+  };
 
   useEffect(() => {
     dispatch(getGenres());
@@ -58,18 +58,20 @@ function Filters({ setOrder, order }) {
           <option value="desc">Z - A</option>
         </select>
 
-        <select onChange={orderOrigin}>
+        <select onChange={(e) => orderOrigin(e)}>
           <option value="all">...</option>
           <option value="api">Existentes</option>
           <option value="db">Creados</option>
         </select>
 
-        <select onChange={cardsGenres}>
-        {/* <select onChange={genresSelect}> */}
+        <select onChange={(e) => cardsGenres(e)}>
+          {/* <select onChange={genresSelect}> */}
           <option value="genres">Generos</option>
           {genresState.map((genre) => (
-            <option value={genre.name}>{genre.name}</option>
-            ))}
+            <option value={genre.name} key={genre.name}>
+              {genre.name}
+            </option>
+          ))}
         </select>
 
         <select onChange={(e) => orderRating(e)}>

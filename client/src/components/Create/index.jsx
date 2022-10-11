@@ -8,14 +8,15 @@ import { useEffect } from "react";
 function Create() {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
-  const platforms = useSelector((state) => state.platforms);
+  // const platforms = useSelector((state) => state.platforms);
 
   const [create, setCreate] = useState({
     name: "",
     description: "",
+    rating: "",
     released: "",
     genres: [],
-    platforms: [],
+    // platforms: [],
   });
 
   const handleChange = (e) => {
@@ -23,53 +24,56 @@ function Create() {
       ...create,
       [e.target.name]: e.target.value,
     });
+    console.log(create);
   };
 
   const handleSelectGenres = (e) => {
-    console.log(`Genero seleccionado: ${e.target.value}`);
     setCreate({
       ...create,
-      genres: [...create.genres, e.target.value],
+      genres: [...new Set([...create.genres, e.target.value])],
     });
+    console.log("Genero seleccionado: " + e.target.value);
   };
 
   const handleSelectPlatforms = (e) => {
-    console.log(`Plataforma seleccionada: ${e.target.value}`);
     setCreate({
       ...create,
-      platforms: [...create.platforms, e.target.value],
+      platforms: [...new Set([...create.platforms, e.target.value])],
     });
+    console.log("Plataforma seleccionada: " + e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("handleSubmit: " + create);
     dispatch(postVideogame(create));
+    alert("Videojuego creado");
     setCreate({
       name: "",
       description: "",
+      rating: "",
       released: "",
       genres: [],
-      platforms: [],
+      // platforms: [],
     });
-    alert("Videojuego creado");
   };
 
   useEffect(() => {
     dispatch(getGenres());
-    dispatch(getPlatforms());
+    // dispatch(getPlatforms());
   }, []);
 
   return (
     <div>
-      <h3>Formulario de creación</h3>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
+        <h3>Formulario de creación</h3>
         <div>
           <label>Titulo: </label>
           <input
             type="text"
             name="name"
             value={create.name}
-            onChange={handleChange}
+            onChange={(e) =>handleChange(e)}
           />
         </div>
         <div>
@@ -78,7 +82,7 @@ function Create() {
             type="text"
             name="description"
             value={create.description}
-            onChange={handleChange}
+            onChange={(e) =>handleChange(e)}
           />
         </div>
         <div>
@@ -87,7 +91,7 @@ function Create() {
             type="date"
             name="released"
             value={create.released}
-            onChange={handleChange}
+            onChange={(e) =>handleChange(e)}
           />
         </div>
         <div>
@@ -96,35 +100,35 @@ function Create() {
             type="text"
             name="rating"
             value={create.rating}
-            onChange={handleChange}
+            onChange={(e) =>handleChange(e)}
           />
         </div>
         <div>
           <label>Genero: </label>
           <select onChange={handleSelectGenres}>
             {genres.map((genre) => (
-              <option value={genre.name}>{genre.name}</option>
+              <option value={genre.name} key={genre.name}>
+                {genre.name}
+              </option>
             ))}
           </select>
         </div>
         <div>
-          <label>Plataforma: </label>
-          {/* <input
-            type="text"
-            name="platforms"
-            value={create.platforms}
-            onChange={handleChange}
-          /> */}
+          {/*
           <select onChange={handleSelectPlatforms}>
             {platforms.map((platform) => {
               return (
-                <option value={platform}>{platform}</option>
+                <option value={platform} key={platform}>
+                  {platform}
+                </option>
               );
             })}
           </select>
+          */}
         </div>
 
-        <button type="submit">Crear</button>
+        <input type="submit" value="Crear" />
+        {/* <button type="submit"disaibled={errorButton ? true = false}>Crear</button> */}
       </form>
     </div>
   );

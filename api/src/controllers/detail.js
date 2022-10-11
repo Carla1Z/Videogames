@@ -34,19 +34,7 @@ const idDb = async (id) => {
   });
 };
 
-// const allId = Object.assign(videogameId, idDb)
-// const allId = { ...videogameId, ...idDb };
-
-const allId = async () => {
-  const apiInfo = await videogameId();
-  const dbInfo = await idDb();
-  const infoTotal = { ...apiInfo, ...dbInfo };
-
-  return infoTotal;
-};
-
 module.exports = {
   videogameId,
   idDb,
-  allId,
 };

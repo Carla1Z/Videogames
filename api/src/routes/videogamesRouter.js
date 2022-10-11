@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { videogameId, allId } = require("../controllers/detail");
+const { videogameId, allId, idDb } = require("../controllers/detail");
 const { videogames, allVideogamesInfo } = require("../controllers/videogames");
 const { Videogame, Genre } = require("../db");
 
@@ -9,7 +9,7 @@ videogamesRouter.get("", async (req, res) => {
   const { name } = req.query;
   const apiInfo = await allVideogamesInfo();
   // console.log(apiInfo.length);
-  console.log(apiInfo.length);
+  console.log("Cantidad de juegos: " + apiInfo.length);
 
   try {
     if (name) {
@@ -32,17 +32,21 @@ videogamesRouter.get("", async (req, res) => {
 
 videogamesRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
-  
+  console.log("Largo del id: " + id.length);
   // Incluir los géneros asociados
   try {
-    if(id){
+    if (id.length < 6) {
+      // const apiInfo = await videogameId(id);
+      // res.status(200).json(apiInfo);
       const apiInfo = await videogameId(id);
-      // const apiInfo = await allId(id);
-      res.status(200).json(apiInfo)
-    }else{
-      res.send("invalid ID")
+      res.status(200).send(apiInfo);
+    } else {
+      const dbInfo = await idDb(id);
+      res.status(200).send(dbInfo);
     }
-
+    // } else {
+    //   res.send("invalid ID");
+    // }
 
     // res.send("GET de la ruta id");
   } catch (error) {
@@ -51,7 +55,10 @@ videogamesRouter.get("/:id", async (req, res) => {
 });
 
 videogamesRouter.post("", async (req, res) => {
-  const { name, description, released, rating, platforms, image, genres } = req.body;
+  const { name, description, released, rating, platforms, image, genres } =
+    req.body;
+  // if (!name || !description || !platforms)
+  //   res.status(400).send("Faltan datos");
   try {
     const newVideogame = await Videogame.create({
       name,
@@ -65,7 +72,6 @@ videogamesRouter.post("", async (req, res) => {
     const genre = await Genre.findAll({
       where: { name: genres },
     });
-
     newVideogame.addGenre(genre);
     res.status(200).send(newVideogame);
     // res.send("POST de la ruta videogames");

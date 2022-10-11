@@ -8,6 +8,7 @@ import {
   GET_PLATFORMS,
   GET_RATING,
   GET_VIDEOGAMES,
+  POST_VIDEOGAME,
   SORT_ORIGIN,
 } from "./type";
 
@@ -59,8 +60,9 @@ export function getRating(payload) {
 
 export function postVideogame(payload) {
   return async function (dispatch) {
-    let videogame = await axios.post("http://localhost:3001/videogames");
-    return videogame;
+    let videogame = await axios.post("http://localhost:3001/videogames", payload);
+    console.log(videogame);
+    return videogame
   };
 }
 
