@@ -8,6 +8,18 @@ button {
   font-weight: bold;
 }
 
+button:active{
+  border: 1px solid rgba(240, 248, 255, 0.87);
+  background-color: dimgray;
+  color: rgba(240, 248, 255, 0.87);
+}
+
+.button:focus{
+  border: 1px solid rgba(240, 248, 255, 0.87);
+  background-color: dimgray;
+  color: rgba(240, 248, 255, 0.87);
+}
+
 .pagination {
   display: flex;
   align-items: center;

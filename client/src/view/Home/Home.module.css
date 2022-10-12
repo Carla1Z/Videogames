@@ -35,7 +35,14 @@
   margin: 5px;
   padding: 5px;
   border-radius: 7px;
-  color: yellowgreen;
-  background-color: black;
-  border: none;
+  color: rgba(0, 0, 0, 0.568);
+  border: 1px solid #00b0c8;
+  background-color: rgba(240, 248, 255, 0.479);
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Teko', sans-serif;
+}
+
+.buttonForm:hover{
+  background-color: #00b1c89c;
 }

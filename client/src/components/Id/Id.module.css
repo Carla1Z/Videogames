@@ -17,7 +17,7 @@
 .detail {
   width: 100%;
   display: grid;
-  grid-template-rows: 80% 20%;
+  grid-template-rows: 70% 30%;
   background-color: rgba(240, 248, 255, 0.527);
   border-radius: 20px;
 }

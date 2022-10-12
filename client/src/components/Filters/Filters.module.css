@@ -6,9 +6,21 @@
 .filter p{
     margin-right: 10px;
     font-weight: 500;
+    font-size: 20px;
 }
 
-.filter select{
+.select{
     margin: 0 1px;
     border-radius: 5px;
+    background-color: rgba(240, 248, 255, 0.479);
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.select option{
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+
 }

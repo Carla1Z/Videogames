@@ -50,7 +50,7 @@ function Filters({ setOrder, order }) {
       <span className={styles.filter}>
         <p>Ordenar por</p>
 
-        <select onChange={(e) => orderAbc(e)}>
+        <select onChange={(e) => orderAbc(e)} className={styles.select}>
           <option value="all" hidden>
             Nombre
           </option>
@@ -58,13 +58,13 @@ function Filters({ setOrder, order }) {
           <option value="desc">Z - A</option>
         </select>
 
-        <select onChange={(e) => orderOrigin(e)}>
+        <select onChange={(e) => orderOrigin(e)} className={styles.select}>
           <option value="all">...</option>
           <option value="api">Existentes</option>
           <option value="db">Creados</option>
         </select>
 
-        <select onChange={(e) => cardsGenres(e)}>
+        <select onChange={(e) => cardsGenres(e)} className={styles.select}>
           {/* <select onChange={genresSelect}> */}
           <option value="genres">Generos</option>
           {genresState.map((genre) => (
@@ -74,7 +74,7 @@ function Filters({ setOrder, order }) {
           ))}
         </select>
 
-        <select onChange={(e) => orderRating(e)}>
+        <select onChange={(e) => orderRating(e)} className={styles.select}>
           <option value="rating" hidden>
             Rating
           </option>
