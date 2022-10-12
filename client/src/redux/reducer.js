@@ -89,8 +89,8 @@ export default function (state = initialState, action) {
         videogames: sortOrigin,
       };
     case GENRES_FILTER:
-      // let allVideogames = state.totalVideogames;
-      let allVideogames = state.videogames;
+      let allVideogames = state.totalVideogames;
+      // let allVideogames = state.videogames;
       let filter =
         action.payload === "genres"
           ? allVideogames

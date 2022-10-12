@@ -1,11 +1,71 @@
 .form{
     display: grid;
     justify-content: center;
+    justify-items: center;
     background-color: rgba(240, 248, 255, 0.658);
+    font-size: 20px;
 }
 
-.form div{
+.error{
+    font-size: 16px;
+    color: red;
+}
+
+.formColums{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contenedorInputs{
+    padding-right: 200px;
+}
+
+.contenedorInputs div{
     margin: 10px;
-    display: grid;
+    display: flex;
     justify-items: stretch;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.contenedorSelect{
+    background-color: rgba(240, 248, 255, 0.658);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contenedorSelect button{
+    border-radius: 25%;
+    font-size: 10px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 105, 180, 0.644);
+    background-color: rgba(105, 105, 105, 0.596);
+    color: rgba(240, 248, 255, 0.87);
+}
+
+.genreSelect{
+    padding-right: 40px;
+}
+
+.genreSelect span{
+    display: flex;
+    align-items: center;
+}
+
+.genreSelect p{
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.platformSelect span{
+    display: flex;
+    align-items: center;
+}
+
+.platformSelect p{
+    font-size: 22px;
+    font-weight: 300;
 }
