@@ -15,6 +15,7 @@ function Create() {
     description: "",
     rating: "",
     released: "",
+    image: "",
     genres: [],
     platforms: [],
   });
@@ -66,6 +67,7 @@ function Create() {
       description: "",
       rating: "",
       released: "",
+      image: "",
       genres: [],
       platforms: [],
     });
@@ -113,6 +115,15 @@ function Create() {
             type="text"
             name="rating"
             value={create.rating}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div>
+          <label>Imagen: </label>
+          <input
+            type="text"
+            name="image"
+            value={create.image}
             onChange={(e) => handleChange(e)}
           />
         </div>
