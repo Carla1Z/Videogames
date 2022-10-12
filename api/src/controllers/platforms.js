@@ -11,6 +11,7 @@ const platform = async () => {
   //   console.log(apiData);
   let deleteDuplicate = [...new Set(apiData)];
   // console.log(deleteDuplicate);
+  
   return deleteDuplicate;
 };
 

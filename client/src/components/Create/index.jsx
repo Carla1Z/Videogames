@@ -8,7 +8,7 @@ import { useEffect } from "react";
 function Create() {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
-  // const platforms = useSelector((state) => state.platforms);
+  const arrayPlatforms = useSelector((state) => state.platforms)
 
   const [create, setCreate] = useState({
     name: "",
@@ -16,8 +16,19 @@ function Create() {
     rating: "",
     released: "",
     genres: [],
-    // platforms: [],
+    platforms: [],
   });
+
+  // const arrayPlatforms = [
+  //   "PC",
+  //   "Nintendo Switch",
+  //   "Xbox 360",
+  //   "PlayStation 4",
+  //   "macOS",
+  //   "Linux",
+  //   "Xbox One",
+  //   "PlayStation 5",
+  // ];
 
   const handleChange = (e) => {
     setCreate({
@@ -31,7 +42,7 @@ function Create() {
     setCreate({
       ...create,
       // genres: [...new Set([...create.genres, e.target.value])],
-      genres: [...create.genres, e.target.value]
+      genres: [...create.genres, e.target.value],
     });
     console.log("Genero seleccionado: " + e.target.value);
   };
@@ -39,9 +50,10 @@ function Create() {
   const handleSelectPlatforms = (e) => {
     setCreate({
       ...create,
-      platforms: [...new Set([...create.platforms, e.target.value])],
+      // platforms: [...new Set([...create.platforms, e.target.value])],
+      platforms: [...create.platforms, e.target.value],
     });
-    console.log("Plataforma seleccionada: " + e.target.value);
+    // console.log("Plataforma seleccionada: " + e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -55,13 +67,13 @@ function Create() {
       rating: "",
       released: "",
       genres: [],
-      // platforms: [],
+      platforms: [],
     });
   };
 
   useEffect(() => {
     dispatch(getGenres());
-    // dispatch(getPlatforms());
+    dispatch(getPlatforms())
   }, []);
 
   return (
@@ -74,7 +86,7 @@ function Create() {
             type="text"
             name="name"
             value={create.name}
-            onChange={(e) =>handleChange(e)}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div>
@@ -83,7 +95,7 @@ function Create() {
             type="text"
             name="description"
             value={create.description}
-            onChange={(e) =>handleChange(e)}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div>
@@ -92,7 +104,7 @@ function Create() {
             type="date"
             name="released"
             value={create.released}
-            onChange={(e) =>handleChange(e)}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div>
@@ -101,12 +113,12 @@ function Create() {
             type="text"
             name="rating"
             value={create.rating}
-            onChange={(e) =>handleChange(e)}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div>
           <label>Genero: </label>
-          <select onChange={(e) =>handleSelectGenres(e)}>
+          <select onChange={(e) => handleSelectGenres(e)}>
             {genres.map((genre) => (
               <option value={genre.id} key={genre.id}>
                 {genre.name}
@@ -115,17 +127,14 @@ function Create() {
           </select>
         </div>
         <div>
-          
-          {/* <select onChange={handleSelectPlatforms}>
-            {platforms.map((platform) => {
-              return (
-                <option value={platform} key={platform}>
-                  {platform}
-                </option>
-              );
-            })}
-          </select> */}
-         
+          <label>Plataforma: </label>
+          <select onChange={(e) => handleSelectPlatforms(e)}>
+            {arrayPlatforms.map((platform) => (
+              <option value={platform} key={platform}>
+                {platform}
+              </option>
+            ))}
+          </select>
         </div>
 
         <input type="submit" value="Crear" />

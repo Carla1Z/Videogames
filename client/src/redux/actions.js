@@ -82,7 +82,7 @@ export function postVideogame(payload) {
 
 export function getPlatforms() {
   return async function (dispatch) {
-    let platforms = await axios("http://localhost:3001/platforms", {});
+    let platforms = await axios("http://localhost:3001/platforms");
     return dispatch({
       type: GET_PLATFORMS,
       payload: platforms.data,
