@@ -47,7 +47,7 @@ function Home({ search, setSearch }) {
           <Link to="/form">
             <button className={styles.buttonForm}>Formulario</button>
           </Link>
-          {/* <Filters setOrder={setOrder} /> */}
+          <Filters setOrder={setOrder} />
         </div>
         <Videogames allVideogames={filteredVideogames} />
         <Pagination

@@ -13,7 +13,7 @@ videogamesRouter.get("", async (req, res) => {
 
   try {
     if (name) {
-      let videogameName = await apiInfo
+      let videogameName = apiInfo
         .filter((el) => el.name.toLowerCase().includes(name.toLowerCase()))
         .slice(0, 15);
 

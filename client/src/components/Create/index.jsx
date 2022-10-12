@@ -8,8 +8,7 @@ import { useEffect } from "react";
 function Create() {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
-  const platforms = useSelector((state) => state.platforms);
-  console.log(genres);
+  // const platforms = useSelector((state) => state.platforms);
 
   const [create, setCreate] = useState({
     name: "",
@@ -17,7 +16,7 @@ function Create() {
     rating: "",
     released: "",
     genres: [],
-    platforms: [],
+    // platforms: [],
   });
 
   const handleChange = (e) => {
@@ -55,13 +54,13 @@ function Create() {
       rating: "",
       released: "",
       genres: [],
-      platforms: [],
+      // platforms: [],
     });
   };
 
   useEffect(() => {
     dispatch(getGenres());
-    dispatch(getPlatforms());
+    // dispatch(getPlatforms());
   }, []);
 
   return (
@@ -116,7 +115,7 @@ function Create() {
         </div>
         <div>
           
-          <select onChange={handleSelectPlatforms}>
+          {/* <select onChange={handleSelectPlatforms}>
             {platforms.map((platform) => {
               return (
                 <option value={platform} key={platform}>
@@ -124,7 +123,7 @@ function Create() {
                 </option>
               );
             })}
-          </select>
+          </select> */}
          
         </div>
 

@@ -3,13 +3,13 @@ const { default: axios } = require("axios");
 const { API_KEY } = process.env;
 const { Videogame, Genre } = require("../db");
 
-let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
 
 const videogames = async () => {
+  let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
   let videogamesApi = [];
   for (let i = 1; i < 6; i++) {
-    let apiData = await axios.get(url + `&page=${i}`);
-    // console.log(apiData.data.results);
+  // let apiData = await axios.get(url + `&page=${i}`);
+  let apiData = await axios.get(url);
 
     apiData.data.results.map((game) => {
       videogamesApi.push({
@@ -22,12 +22,13 @@ const videogames = async () => {
         released: game.released,
       });
     });
+    url = apiData.data.next
   }
   return videogamesApi;
 };
 
 const dbVideogames = async () => {
-  return await Videogame.findAll({
+  let dbGame = await Videogame.findAll({
     include: {
       model: Genre,
       attributes: ["name"],
@@ -36,6 +37,7 @@ const dbVideogames = async () => {
       },
     },
   });
+  return dbGame;
 };
 
 const allVideogamesInfo = async () => {
