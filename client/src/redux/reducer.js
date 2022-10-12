@@ -37,6 +37,11 @@ export default function (state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+    case GET_GENRES:
+      return {
+        ...state,
+        genres: action.payload,
+      };
     case GET_ORDER_ABC:
       let sortVideogames = [...state.videogames];
 
@@ -84,7 +89,8 @@ export default function (state = initialState, action) {
         videogames: sortOrigin,
       };
     case GENRES_FILTER:
-      let allVideogames = state.totalVideogames;
+      // let allVideogames = state.totalVideogames;
+      let allVideogames = state.videogames;
       let filter =
         action.payload === "genres"
           ? allVideogames
@@ -95,11 +101,7 @@ export default function (state = initialState, action) {
         ...state,
         videogames: filter,
       };
-    case GET_GENRES:
-      return {
-        ...state,
-        genres: action.payload,
-      };
+
     case GET_PLATFORMS:
       return {
         ...state,

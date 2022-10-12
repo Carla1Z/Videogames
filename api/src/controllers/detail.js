@@ -14,6 +14,7 @@ const videogameId = async (id) => {
     image: info.data.background_image,
     rating: info.data.rating,
     genres: info.data.genres.map((genre) => genre.name).toString(),
+    // genres: info.data.genres.map((genre) => genre.name).filter((genre) => genre != null).join(", "),
     platforms: info.data.platforms[0].platform.name,
     released: info.data.released,
     description: info.data.description_raw,

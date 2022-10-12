@@ -18,6 +18,7 @@ const videogames = async () => {
         image: game.background_image,
         rating: game.rating,
         genres: game.genres.map((genre) => genre.name).toString(),
+        // genres: game.genres.map((genre) => genre.name).filter((genre) => genre != null).join(", "),
         platforms: game.platforms[0].platform.name,
         released: game.released,
       });

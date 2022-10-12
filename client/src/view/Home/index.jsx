@@ -12,7 +12,7 @@ import Filters from "../../components/Filters";
 function Home({ search, setSearch }) {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
-  // console.log(allVideogames);
+  console.log(allVideogames);
 
   // const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);

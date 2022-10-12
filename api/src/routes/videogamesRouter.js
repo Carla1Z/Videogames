@@ -35,7 +35,7 @@ videogamesRouter.get("/:id", async (req, res) => {
   console.log("Largo del id: " + id.length);
   // Incluir los géneros asociados
   try {
-    if (id.length < 6) {
+    if (id.length < 8) {
       // const apiInfo = await videogameId(id);
       // res.status(200).json(apiInfo);
       const apiInfo = await videogameId(id);

@@ -30,7 +30,8 @@ function Create() {
   const handleSelectGenres = (e) => {
     setCreate({
       ...create,
-      genres: [...new Set([...create.genres, e.target.value])],
+      // genres: [...new Set([...create.genres, e.target.value])],
+      genres: [...create.genres, e.target.value]
     });
     console.log("Genero seleccionado: " + e.target.value);
   };
