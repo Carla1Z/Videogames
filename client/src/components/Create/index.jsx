@@ -115,8 +115,8 @@ function Create() {
 
   return (
     <div>
-      <h3>Sube tu videojuego</h3>
       <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
+      <h3>Sube tu videojuego</h3>
         <div className={styles.formColums}>
           <div className={styles.contenedorInputs}>
             <div>
@@ -212,7 +212,7 @@ function Create() {
             </div>
           </div>
         </div>
-        <input type="submit" value="Crear" onSubmit={(e) => handleSubmit(e)} />
+        <input type="submit" value="Crear" onSubmit={(e) => handleSubmit(e)} className={styles.crear} />
         {/* <button type="submit"disaibled={errorButton ? true = false}>Crear</button> */}
       </form>
     </div>

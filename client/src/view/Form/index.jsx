@@ -5,7 +5,6 @@ import styles from "./Form.module.css";
 function Form() {
   return (
     <div className={styles.form}>
-      <h2>Vista del formulario de creación</h2>
       <Link to="/home">
         <button>Volver</button>
       </Link>
