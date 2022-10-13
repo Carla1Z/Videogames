@@ -4,6 +4,7 @@ import LandingPage from "./view/LandingPage";
 import Home from "./view/Home";
 import Form from "./view/Form";
 import Detail from "./view/Detail";
+import NotFound from "./view/NotFound";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/home/:id" component={Detail} />
         <Route path="/home" component={Home} />
         <Route path="/form" component={Form} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </div>
   );

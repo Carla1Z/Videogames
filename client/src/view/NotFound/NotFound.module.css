@@ -1,0 +1,27 @@
+.notfound{
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.msg{
+    display: grid;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.msg h1{
+    font-size: 100px;
+}
+
+.msg button{
+    cursor: pointer;
+}
+
+.msg button:hover{
+    background-color: rgba(0, 0, 0, 0.514);
+    color: aliceblue;
+    border: 1px solid aliceblue;
+}
