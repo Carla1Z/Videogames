@@ -52,8 +52,8 @@ function Create() {
   const handleSelectGenres = (e) => {
     setCreate({
       ...create,
-      // genres: [...new Set([...create.genres, e.target.value])],
-      genres: [...create.genres, e.target.value],
+      genres: [...new Set([...create.genres, e.target.value])],
+      // genres: [...create.genres, e.target.value],
     });
     console.log("Genero seleccionado: " + e.target.value);
   };
@@ -68,8 +68,8 @@ function Create() {
   const handleSelectPlatforms = (e) => {
     setCreate({
       ...create,
-      // platforms: [...new Set([...create.platforms, e.target.value])],
-      platforms: [...create.platforms, e.target.value],
+      platforms: [...new Set([...create.platforms, e.target.value])],
+      // platforms: [...create.platforms, e.target.value],
     });
     // console.log("Plataforma seleccionada: " + e.target.value);
   };
@@ -83,7 +83,6 @@ function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handleSubmit: " + create);
     setError(
       Validation({
         ...create,
@@ -92,6 +91,7 @@ function Create() {
     );
     if (Object.keys(error).length === 0) {
       alert("Videojuego creado");
+      console.log("handleSubmit: " + create);
       dispatch(postVideogame(create));
       setCreate({
         name: "",
@@ -102,7 +102,7 @@ function Create() {
         genres: [],
         platforms: [],
       });
-      history.push("/home")
+      history.push("/home");
     } else {
       alert("No se puedo subir el videojuego");
     }
@@ -116,7 +116,7 @@ function Create() {
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
-      <h3>Sube tu videojuego</h3>
+        <h3>Sube tu videojuego</h3>
         <div className={styles.formColums}>
           <div className={styles.contenedorInputs}>
             <div>
@@ -137,7 +137,9 @@ function Create() {
                 value={create.description}
                 onChange={(e) => handleChange(e)}
               />
-              {error.description && <p className={styles.error}>{error.description}</p>}
+              {error.description && (
+                <p className={styles.error}>{error.description}</p>
+              )}
             </div>
             <div>
               <label>Fecha de lanzamiento</label>
@@ -187,7 +189,9 @@ function Create() {
                   </option>
                 ))}
               </select>
-              {error.platforms && <p className={styles.error}>{error.platforms}</p>}
+              {error.platforms && (
+                <p className={styles.error}>{error.platforms}</p>
+              )}
             </div>
           </div>
 
@@ -212,7 +216,12 @@ function Create() {
             </div>
           </div>
         </div>
-        <input type="submit" value="Crear" onSubmit={(e) => handleSubmit(e)} className={styles.crear} />
+        <input
+          type="submit"
+          value="Crear"
+          onSubmit={(e) => handleSubmit(e)}
+          className={styles.crear}
+        />
         {/* <button type="submit"disaibled={errorButton ? true = false}>Crear</button> */}
       </form>
     </div>
