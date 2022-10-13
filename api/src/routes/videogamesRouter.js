@@ -23,11 +23,10 @@ videogamesRouter.get("", async (req, res) => {
     } else {
       res.status(200).send(apiInfo);
     }
+    // res.send("GET de la ruta videogames");
   } catch (error) {
     console.log("Error en la ruta videogames= " + error);
   }
-  //   console.log(videogames());
-  // res.send("GET de la ruta videogames");
 });
 
 videogamesRouter.get("/:id", async (req, res) => {
@@ -44,9 +43,6 @@ videogamesRouter.get("/:id", async (req, res) => {
       const dbInfo = await idDb(id);
       res.status(200).send(dbInfo);
     }
-    // } else {
-    //   res.send("invalid ID");
-    // }
 
     // res.send("GET de la ruta id");
   } catch (error) {
@@ -57,8 +53,6 @@ videogamesRouter.get("/:id", async (req, res) => {
 videogamesRouter.post("", async (req, res) => {
   const { name, description, released, rating, platforms, image, genres } =
     req.body;
-  // if (!name || !description || !platforms)
-  //   res.status(400).send("Faltan datos");
 
   try {
     const newVideogame = await Videogame.create({

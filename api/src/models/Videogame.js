@@ -12,15 +12,14 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
     },
     released: {
       type: DataTypes.STRING,
-      // type: DataTypes.DATEONLY,
       allowNull: true,
     },
     rating: {
@@ -29,8 +28,8 @@ module.exports = (sequelize) => {
     },
     platforms: {
       // type: DataTypes.STRING,
-      type: DataTypes.ARRAY(DataTypes.STRING)
-      // allowNull: false,
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
     },
     image: {
       type: DataTypes.STRING,
