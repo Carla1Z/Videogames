@@ -1,6 +1,7 @@
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const GET_NAME = "GET_NAME";
 export const GET_ID = "GET_ID";
+export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const GET_RATING = "GET_RATING";
 export const GET_GENRES = "GET_GENRES";
 export const GET_PLATFORMS = "GET_PLATFORMS";

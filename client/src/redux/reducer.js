@@ -1,4 +1,5 @@
 import {
+  CLEAR_DETAIL,
   GENRES_FILTER,
   GET_GENRES,
   GET_ID,
@@ -36,6 +37,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         detail: action.payload,
+      };
+    case CLEAR_DETAIL:
+      return {
+        ...state,
+        detail: {},
       };
     case GET_GENRES:
       return {

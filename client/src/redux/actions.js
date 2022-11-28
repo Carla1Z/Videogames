@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  CLEAR_DETAIL,
   GENRES_FILTER,
   GET_GENRES,
   GET_ID,
@@ -20,7 +21,6 @@ export function getVideogames() {
         type: GET_VIDEOGAMES,
         payload: allVideogames.data,
       });
-      
     } catch (error) {
       console.log("Error en la action GET_VIDEOGAMES: " + error);
     }
@@ -52,6 +52,12 @@ export function getVideogamesId(id) {
     } catch (error) {
       console.log("Error en la action GET_ID: " + error);
     }
+  };
+}
+
+export function clearDetail() {
+  return {
+    type: CLEAR_DETAIL,
   };
 }
 
