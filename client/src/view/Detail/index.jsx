@@ -2,7 +2,7 @@ import styles from "./Detail.module.css"
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getVideogamesId } from "../../redux/actions"
+import { clearDetail, getVideogamesId } from "../../redux/actions"
 import Id from "../../components/Id";
 
 function Detail() {
@@ -15,6 +15,7 @@ const videogameDetail= useSelector((state) => state.detail)
 console.log(videogameDetail);
 
 useEffect(() => {
+  dispatch(clearDetail())
     dispatch(getVideogamesId(id))
 }, [dispatch, id])
   return (
