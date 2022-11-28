@@ -17,6 +17,10 @@ function Filters({ setOrder, order }) {
 
   const [select, setSelect] = useState({ genres: [] });
 
+  const refreshFilter = (e) => {
+    dispatch(getVideogames(e))
+  }
+
   const orderAbc = (e) => {
     dispatch(getOrderAbc(e.target.value));
     setOrder(`Ordenado ${e.target.value}`);
@@ -51,7 +55,7 @@ function Filters({ setOrder, order }) {
       <span className={styles.filter}>
         <p>Ordenar por</p>
 
-        <button className={styles.refresh}>
+        <button className={styles.refresh} onClick={(e) => refreshFilter(e)}>
           <BiRefresh />
         </button>
         <select onChange={(e) => orderAbc(e)} className={styles.select}>
