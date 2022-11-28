@@ -32,9 +32,9 @@
   font-weight: 400;
 }
 
-.select:hover {
-  /* background-color: #00b1c89c; */
-}
+/* .select:hover {
+  background-color: #00b1c89c;
+} */
 
 .select option {
   font-family: "Teko", sans-serif;
