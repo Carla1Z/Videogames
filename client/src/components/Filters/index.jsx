@@ -8,6 +8,7 @@ import {
   getVideogames,
   sortByOrigin,
 } from "../../redux/actions";
+import { BiRefresh } from "react-icons/bi";
 import { useEffect, useState } from "react";
 
 function Filters({ setOrder, order }) {
@@ -50,6 +51,9 @@ function Filters({ setOrder, order }) {
       <span className={styles.filter}>
         <p>Ordenar por</p>
 
+        <button className={styles.refresh}>
+          <BiRefresh />
+        </button>
         <select onChange={(e) => orderAbc(e)} className={styles.select}>
           <option value="all" hidden>
             Nombre
