@@ -9,7 +9,14 @@ function Card({ image, name, genres }) {
 
         <div className={styles.back}>
           <h3>{name}</h3>
-          <p>{genres}</p>
+          {/* <p>{genres}</p> */}
+          <ul>
+            {genres.map(el => {
+              return(
+                <li>{el}</li>
+              )
+            })}
+          </ul>
         </div>
     </div>
   );
