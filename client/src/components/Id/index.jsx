@@ -14,7 +14,7 @@ function Id({ videogameDetail }) {
                 </li>
                 <li>
                   <b>Generos:</b>
-                  <p>{!videogameDetail.originDb ? videogameDetail.genres : videogameDetail.genres.map(el => el.name).toString()}</p>
+                  <p>{!videogameDetail.originDb ? videogameDetail.genres : videogameDetail.genres.map(el => el.name)}</p>
                 </li>
                 <li>
                   <b>Plataforma:</b>
