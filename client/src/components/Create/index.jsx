@@ -102,7 +102,7 @@ function Create() {
         genres: [],
         platforms: [],
       });
-      history.push("/home");
+      // history.push("/home");
     } else {
       alert("No se puedo subir el videojuego");
     }
@@ -149,6 +149,7 @@ function Create() {
                 value={create.released}
                 onChange={(e) => handleChange(e)}
               />
+              {error.released && <p className={styles.error}>{error.released}</p>}
             </div>
             <div>
               <label>Rating*:</label>
@@ -200,8 +201,9 @@ function Create() {
               <h4>Generos</h4>
               {create.genres.map((el) => (
                 <span>
+                  {console.log(create.genres)}
                   <button onClick={() => handleDeleteGenre(el)}>X</button>
-                  <p>ID del genero: {el}</p>
+                  <p>{el}</p>
                 </span>
               ))}
             </div>
@@ -227,12 +229,5 @@ function Create() {
     </div>
   );
 }
-
-// Nombre
-// Descripción
-// Fecha de lanzamiento
-// Rating
-// genero
-// plataforma
 
 export default Create;
