@@ -102,7 +102,7 @@ function Create() {
         genres: [],
         platforms: [],
       });
-      // history.push("/home");
+      history.push("/home");
     } else {
       alert("No se puedo subir el videojuego");
     }
