@@ -1,6 +1,7 @@
 import styles from "./Videogames.module.css";
 import Card from "../Card";
 import { Link } from "react-router-dom";
+import Loader from "../Loader";
 
 function Videogames({ allVideogames }) {
   return (
@@ -20,7 +21,7 @@ function Videogames({ allVideogames }) {
             );
           })
         ) : (
-          <p>Cargando videojuegos...</p>
+          <Loader className={styles.loader} />
         )}
       </div>
     </div>

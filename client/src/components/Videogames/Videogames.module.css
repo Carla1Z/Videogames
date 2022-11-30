@@ -3,3 +3,7 @@
   grid-template-columns: repeat(auto-fill, 200px);
   justify-content: space-between;
 }
+
+.loader{
+  display: grid;
+}
