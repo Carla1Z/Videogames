@@ -55,9 +55,9 @@ function Filters({ setOrder, order }) {
       <span className={styles.filter}>
         <p>Ordenar por</p>
 
-        <button className={styles.refresh} onClick={(e) => refreshFilter(e)}>
+        {/* <button className={styles.refresh} onClick={(e) => refreshFilter(e)}>
           <BiRefresh />
-        </button>
+        </button> */}
         <select onChange={(e) => orderAbc(e)} className={styles.select}>
           <option value="all" hidden>
             Nombre
