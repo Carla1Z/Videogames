@@ -126,6 +126,7 @@ function Create() {
                 name="name"
                 value={create.name}
                 onChange={(e) => handleChange(e)}
+                required
               />
               {error.name && <p className={styles.error}>{error.name}</p>}
             </div>
@@ -136,6 +137,7 @@ function Create() {
                 name="description"
                 value={create.description}
                 onChange={(e) => handleChange(e)}
+                required
               />
               {error.description && (
                 <p className={styles.error}>{error.description}</p>
@@ -148,6 +150,7 @@ function Create() {
                 name="released"
                 value={create.released}
                 onChange={(e) => handleChange(e)}
+                required
               />
               {error.released && <p className={styles.error}>{error.released}</p>}
             </div>
@@ -158,6 +161,7 @@ function Create() {
                 name="rating"
                 value={create.rating}
                 onChange={(e) => handleChange(e)}
+                required
               />
               {error.rating && <p className={styles.error}>{error.rating}</p>}
             </div>
@@ -167,6 +171,7 @@ function Create() {
                 type="text"
                 name="image"
                 value={create.image}
+                placeholder= "URL imagen..."
                 onChange={(e) => handleChange(e)}
               />
             </div>
