@@ -61,7 +61,9 @@ videogamesRouter.post("", async (req, res) => {
       released,
       rating,
       platforms,
-      image,
+      image:
+        image ||
+        "https://images.unsplash.com/photo-1539716947714-3295e1074d33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
     });
     let buscarGenres = await Genre.findAll({
       where: { name: genres },
