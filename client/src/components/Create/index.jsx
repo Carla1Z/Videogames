@@ -174,7 +174,7 @@ function Create() {
               <label>Genero: </label>
               <select onChange={(e) => handleSelectGenres(e)}>
                 {genres.map((genre) => (
-                  <option value={genre.id} key={genre.id}>
+                  <option value={genre.name} key={genre.id}>
                     {genre.id} - {genre.name}
                   </option>
                 ))}
