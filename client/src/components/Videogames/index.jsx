@@ -14,7 +14,7 @@ function Videogames({ allVideogames }) {
                   key={game.id}
                   image={game.image}
                   name={game.name}
-                  genres={!game.originDb ? game.genres.map(el => el.name) : game.genres.map(el => el.name)}
+                  genres={!game.originDb ? game.genres : game.genres.map(el => el.name)}
                 />
               </Link>
             );
