@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.27eaf64b.chunk.css",
+    "main.js": "/static/js/main.f8a68bd8.chunk.js",
+    "main.js.map": "/static/js/main.f8a68bd8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e75474ba.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e75474ba.js.map",
+    "static/js/2.e568cda3.chunk.js": "/static/js/2.e568cda3.chunk.js",
+    "static/js/2.e568cda3.chunk.js.map": "/static/js/2.e568cda3.chunk.js.map",
+    "static/js/3.885ba3ff.chunk.js": "/static/js/3.885ba3ff.chunk.js",
+    "static/js/3.885ba3ff.chunk.js.map": "/static/js/3.885ba3ff.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.27eaf64b.chunk.css.map": "/static/css/main.27eaf64b.chunk.css.map",
+    "static/js/2.e568cda3.chunk.js.LICENSE.txt": "/static/js/2.e568cda3.chunk.js.LICENSE.txt",
+    "static/media/LadingPage.module.css": "/static/media/LandinPage.25009236.jpg",
+    "static/media/banner.864fe793.jpg": "/static/media/banner.864fe793.jpg",
+    "static/media/john-travolta.59b46f45.gif": "/static/media/john-travolta.59b46f45.gif",
+    "static/media/lupa.f7fe4539.png": "/static/media/lupa.f7fe4539.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e75474ba.js",
+    "static/js/2.e568cda3.chunk.js",
+    "static/css/main.27eaf64b.chunk.css",
+    "static/js/main.f8a68bd8.chunk.js"
+  ]
+}
