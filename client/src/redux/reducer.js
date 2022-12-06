@@ -73,10 +73,12 @@ export default function (state = initialState, action) {
           ? state.totalVideogames.sort(function (a, b) {
               if (a.rating - b.rating < 0) return 1;
               if (a.rating - b.rating > 0) return -1;
+              return 0;
             })
           : state.totalVideogames.sort(function (a, b) {
               if (a.rating - b.rating > 0) return 1;
               if (a.rating - b.rating < 0) return -1;
+              return 0;
             });
       return {
         ...state,

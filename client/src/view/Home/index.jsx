@@ -27,7 +27,7 @@ function Home({ search, setSearch }) {
   };
 
   //ORDENAMIENTO
-  const [order, setOrder] = useState("");
+  const [setOrder] = useState("");
 
   useEffect(() => {
     // setLoading(true);
@@ -38,9 +38,9 @@ function Home({ search, setSearch }) {
   return (
     <div className={styles.home}>
       <Nav setCurrentPage={setCurrentPage} />
-        <Link to="/" className={styles.link}>
-          <img src={banner} alt="videogames banner" className={styles.banner}/>
-        </Link>
+      <Link to="/" className={styles.link}>
+        <img src={banner} alt="videogames banner" className={styles.banner} />
+      </Link>
 
       <div className={styles.menu}>
         <div className={styles.barra}>
