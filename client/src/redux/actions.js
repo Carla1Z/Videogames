@@ -9,7 +9,6 @@ import {
   GET_PLATFORMS,
   GET_RATING,
   GET_VIDEOGAMES,
-  POST_VIDEOGAME,
   SORT_ORIGIN,
 } from "./type";
 

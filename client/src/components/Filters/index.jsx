@@ -5,21 +5,13 @@ import {
   getGenres,
   getOrderAbc,
   getRating,
-  getVideogames,
   sortByOrigin,
 } from "../../redux/actions";
-import { BiRefresh } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function Filters({ setOrder, order }) {
   const dispatch = useDispatch();
   const genresState = useSelector((state) => state.genres);
-
-  const [select, setSelect] = useState({ genres: [] });
-
-  const refreshFilter = (e) => {
-    dispatch(getVideogames(e))
-  }
 
   const orderAbc = (e) => {
     dispatch(getOrderAbc(e.target.value));
@@ -30,13 +22,6 @@ function Filters({ setOrder, order }) {
     dispatch(getRating(e.target.value));
     setOrder(`Ordenado ${e.target.value}`);
   };
-
-  // const genresSelect = (e) => {
-  //   setSelect({
-  //     ...select,
-  //     genres: [...select.genres, e.target.value],
-  //   });
-  // };
 
   const cardsGenres = (e) => {
     dispatch(filterGenres(e.target.value));
@@ -54,10 +39,6 @@ function Filters({ setOrder, order }) {
     <div>
       <span className={styles.filter}>
         <p>Ordenar por</p>
-
-        {/* <button className={styles.refresh} onClick={(e) => refreshFilter(e)}>
-          <BiRefresh />
-        </button> */}
         <select onChange={(e) => orderAbc(e)} className={styles.select}>
           <option value="all" hidden>
             Nombre

@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms, postVideogame } from "../../redux/actions";
 import { useState } from "react";
-import axios from "axios";
 import { useEffect } from "react";
 import Validation from "./Validation";
 
