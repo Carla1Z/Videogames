@@ -151,7 +151,9 @@ function Create() {
                 onChange={(e) => handleChange(e)}
                 required
               />
-              {error.released && <p className={styles.error}>{error.released}</p>}
+              {error.released && (
+                <p className={styles.error}>{error.released}</p>
+              )}
             </div>
             <div>
               <label>Rating*:</label>
@@ -170,7 +172,7 @@ function Create() {
                 type="text"
                 name="image"
                 value={create.image}
-                placeholder= "URL imagen..."
+                placeholder="URL imagen..."
                 onChange={(e) => handleChange(e)}
               />
             </div>
@@ -199,28 +201,6 @@ function Create() {
               )}
             </div>
           </div>
-
-          <div className={styles.contenedorSelect}>
-            <div className={styles.genreSelect}>
-              <h4>Generos</h4>
-              {create.genres.map((el) => (
-                <span>
-                  {console.log(create.genres)}
-                  <button onClick={() => handleDeleteGenre(el)}>X</button>
-                  <p>{el}</p>
-                </span>
-              ))}
-            </div>
-            <div className={styles.platformSelect}>
-              <h4>Plataformas</h4>
-              {create.platforms.map((el) => (
-                <span>
-                  <button onClick={() => handleDeletePlatform(el)}>X</button>
-                  <p>{el}</p>
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
         <input
           type="submit"
@@ -230,6 +210,27 @@ function Create() {
         />
         {/* <button type="submit"disaibled={errorButton ? true = false}>Crear</button> */}
       </form>
+      <div className={styles.contenedorSelect}>
+        <div className={styles.genreSelect}>
+          <h4>Generos</h4>
+          {create.genres.map((el) => (
+            <span>
+              {console.log(create.genres)}
+              <button onClick={() => handleDeleteGenre(el)}>X</button>
+              <p>{el}</p>
+            </span>
+          ))}
+        </div>
+        <div className={styles.platformSelect}>
+          <h4>Plataformas</h4>
+          {create.platforms.map((el) => (
+            <span>
+              <button onClick={() => handleDeletePlatform(el)}>X</button>
+              <p>{el}</p>
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
