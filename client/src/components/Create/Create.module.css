@@ -1,8 +1,14 @@
+.create {
+  background-color: rgba(240, 248, 255, 0.658);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form {
   display: grid;
   justify-content: center;
   justify-items: center;
-  background-color: rgba(240, 248, 255, 0.658);
   font-size: 20px;
 }
 

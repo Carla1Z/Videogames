@@ -113,7 +113,7 @@ function Create() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.create}>
       <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
         <h3>Sube tu videojuego</h3>
         <div className={styles.formColums}>
@@ -210,27 +210,30 @@ function Create() {
         />
         {/* <button type="submit"disaibled={errorButton ? true = false}>Crear</button> */}
       </form>
-      <div className={styles.contenedorSelect}>
-        <div className={styles.genreSelect}>
-          <h4>Generos</h4>
-          {create.genres.map((el) => (
-            <span>
-              {console.log(create.genres)}
-              <button onClick={() => handleDeleteGenre(el)}>X</button>
-              <p>{el}</p>
-            </span>
-          ))}
+
+      {create.genres.length != 0 || create.platforms.length != 0 ? (
+        <div className={styles.contenedorSelect}>
+          <div className={styles.genreSelect}>
+            <h4>Generos</h4>
+            {create.genres.map((el) => (
+              <span>
+                {console.log(create.genres)}
+                <button onClick={() => handleDeleteGenre(el)}>X</button>
+                <p>{el}</p>
+              </span>
+            ))}
+          </div>
+          <div className={styles.platformSelect}>
+            <h4>Plataformas</h4>
+            {create.platforms.map((el) => (
+              <span>
+                <button onClick={() => handleDeletePlatform(el)}>X</button>
+                <p>{el}</p>
+              </span>
+            ))}
+          </div>
         </div>
-        <div className={styles.platformSelect}>
-          <h4>Plataformas</h4>
-          {create.platforms.map((el) => (
-            <span>
-              <button onClick={() => handleDeletePlatform(el)}>X</button>
-              <p>{el}</p>
-            </span>
-          ))}
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 }
