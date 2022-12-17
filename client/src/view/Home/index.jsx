@@ -27,7 +27,7 @@ function Home({ search, setSearch }) {
   };
 
   //ORDENAMIENTO
-  const [setOrder] = useState("");
+  const [order, setOrder] = useState("");
 
   useEffect(() => {
     // setLoading(true);
